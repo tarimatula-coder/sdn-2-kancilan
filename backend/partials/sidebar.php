@@ -28,14 +28,14 @@
             </li>
 
             <li class="sidebar-item">
-                <a class="sidebar-link" href="pages-sign-up.html">
-                    <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Sign Up</span>
+                <a class="sidebar-link" href="../ekstrakulikuler/index.php">
+                    <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Ekstrakulikuler</span>
                 </a>
             </li>
 
             <li class="sidebar-item">
-                <a class="sidebar-link" href="pages-blank.html">
-                    <i class="align-middle" data-feather="book"></i> <span class="align-middle">Blank</span>
+                <a class="sidebar-link" href="../guru/index.php">
+                    <i class="align-middle" data-feather="book"></i> <span class="align-middle">Guru</span>
                 </a>
             </li>
 
@@ -44,8 +44,8 @@
             </li>
 
             <li class="sidebar-item">
-                <a class="sidebar-link" href="ui-buttons.html">
-                    <i class="align-middle" data-feather="square"></i> <span class="align-middle">Buttons</span>
+                <a class="sidebar-link" href="../headmaster/index.php">
+                    <i class="align-middle" data-feather="square"></i> <span class="align-middle">Kepala sekolah</span>
                 </a>
             </li>
 
