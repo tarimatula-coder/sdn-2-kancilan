@@ -221,6 +221,20 @@
         });
     });
 </script>
+<script>
+    const togglePassword = document.getElementById("togglePassword");
+    const passwordInput = document.getElementById("passwordInput");
+    const icon = togglePassword.querySelector("i");
+
+    togglePassword.addEventListener("click", function() {
+        const type = passwordInput.type === "password" ? "text" : "password";
+        passwordInput.type = type;
+
+        icon.classList.toggle("bi-eye");
+        icon.classList.toggle("bi-eye-slash");
+    });
+</script>
+
 
 </body>
 

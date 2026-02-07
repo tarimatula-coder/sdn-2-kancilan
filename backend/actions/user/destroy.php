@@ -1,15 +1,10 @@
 <?php
 include '../../app.php';
 include './show.php';
-$storages = "../../../storages/cooperation/";
 
-// hapus gambar lama jika ada
-if (!empty($cooperations->image) && file_exists($storages . $cooperations->image)) {
-    unlink($storages . $cooperations->image);
-}
 
 // Hapus data
-$qDelete = "DELETE FROM cooperations WHERE id = '$cooperations->id'";
+$qDelete = "DELETE FROM user WHERE id = '$user->id'";
 $result = mysqli_query($connect, $qDelete) or die(mysqli_error($connect));
 
 // cek apakah data berhasil di hapus atau tidak
@@ -17,14 +12,14 @@ if ($result) {
     echo " 
          <script>    
             alert('Data berhasil dihapus');
-            window.location.href='../../pages/cooperations/index.php';
+            window.location.href='../../pages/user/index.php';
         </script>
             ";
 } else {
     echo "
          <script>    
             alert('Data gagal dihapus');
-            window.location.href='../../pages/cooperations/index.php';
+            window.location.href='../../pages/user/index.php';
          </script>
      ";
 }

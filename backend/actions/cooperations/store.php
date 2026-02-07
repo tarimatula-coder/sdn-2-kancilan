@@ -7,7 +7,7 @@ if (isset($_POST['tombol'])) {
     $imageNew = time() . ".png";
     $link = escapeString($_POST['link']);
 
-    $storages = "../../../storages/cooperation/";
+    $storages = "../../../storages/cooperations/";
     if (move_uploaded_file($imageOld, $storages . $imageNew)) {
         $qInsert = "INSERT INTO cooperations(image, link) VALUES('$imageNew', '$link')";
 

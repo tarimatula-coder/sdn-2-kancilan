@@ -62,14 +62,14 @@
             </li>
 
             <li class="sidebar-item">
-                <a class="sidebar-link" href="ui-typography.html">
-                    <i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Typography</span>
+                <a class="sidebar-link" href="../user/index.php">
+                    <i class="align-middle" data-feather="align-left"></i> <span class="align-middle">User</span>
                 </a>
             </li>
 
             <li class="sidebar-item">
-                <a class="sidebar-link" href="icons-feather.html">
-                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Icons</span>
+                <a class="sidebar-link" href="../visi_misi/index.php">
+                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Visi misi</span>
                 </a>
             </li>
 
@@ -89,17 +89,5 @@
                 </a>
             </li>
         </ul>
-
-        <div class="sidebar-cta">
-            <div class="sidebar-cta-content">
-                <strong class="d-inline-block mb-2">Upgrade to Pro</strong>
-                <div class="mb-3 text-sm">
-                    Are you looking for more components? Check out our premium version.
-                </div>
-                <div class="d-grid">
-                    <a href="upgrade-to-pro.html" class="btn btn-primary">Upgrade to Pro</a>
-                </div>
-            </div>
-        </div>
     </div>
 </nav>

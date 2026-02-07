@@ -3,17 +3,17 @@ if (!isset($_GET['id'])) {
     echo "
     <script>    
         alert('Tidak bisa memilih ID ini');
-        window.location.href='../../pages/cooperation/index.php';
+        window.location.href='../../pages/user/index.php';
         </script>
     ";
 }
 
 $id = $_GET['id'];
 
-$qSelect = "SELECT * FROM cooperations WHERE id='$id'";
+$qSelect = "SELECT * FROM user WHERE id='$id'";
 $result = mysqli_query($connect, $qSelect) or die(mysqli_error($connect));
 
-$cooperations = $result->fetch_object();
-if (!$cooperations) {
+$user = $result->fetch_object();
+if (!$user) {
     die("Data tidak di temukan");
 }

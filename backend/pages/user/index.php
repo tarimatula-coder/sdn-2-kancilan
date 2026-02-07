@@ -1,5 +1,8 @@
 <?php
 include '../../partials/header.php';
+
+$qUser = "SELECT * FROM user";
+$result = mysqli_query($connect, $qUser) or die(mysqli_error($connect));
 ?>
 
 <div class="wrapper">
@@ -11,56 +14,37 @@ include '../../partials/header.php';
         <?php include '../../partials/navbar.php'; ?>
 
         <main class="content">
-            <div class="container-fluid p-0">
-
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12">
-                        <div class="card shadow-sm">
-
+                    <div class="col-12 py-5">
+                        <div class="card mb-3">
                             <div class="card-header d-flex align-items-center justify-content-between">
-                                <h5 class="mb-0 fw-bold">Tabel Kerja Sama</h5>
-                                <a href="./create.php" class="btn btn-primary btn-sm">
-                                    Tambah
-                                </a>
+                                <h5>Tabel User</h5>
+                                <a href="./create.php" class="btn btn-primary">Tambah</a>
                             </div>
-
                             <div class="card-body">
                                 <div class="table-responsive">
-
-                                    <table id="datatable"
-                                        class="table table-bordered table-hover align-middle text-center w-100">
-
+                                    <table id="datatable" class="table table-bordered table-hover align-middle text-center w-100">
                                         <thead class="table-dark">
                                             <tr>
-                                                <th width="5%">No</th>
-                                                <th width="20%">Gambar</th>
-                                                <th>Link</th>
-                                                <th width="25%">Aksi</th>
+                                                <th class="text-center">No</th>
+                                                <th class="text-center">Nama</th>
+                                                <th class="text-center">Email</th>
+                                                <th class="text-center">Password</th>
+                                                <th class="text-center">Selengkapnya</th>
                                             </tr>
                                         </thead>
-
                                         <tbody>
                                             <?php
                                             $no = 1;
-                                            $result = mysqli_query($connect, "SELECT * FROM cooperations");
-                                            while ($item = mysqli_fetch_object($result)):
+                                            while ($item = $result->fetch_object()):
                                             ?>
                                                 <tr>
-                                                    <td><?= $no++ ?></td>
+                                                    <td class="text-center"><?= $no ?></td>
 
-                                                    <td>
-                                                        <img src="../../../storages/cooperations/<?= $item->image ?>"
-                                                            class="img-thumbnail"
-                                                            style="width:90px; height:90px; object-fit:cover;">
-                                                    </td>
-
-                                                    <td>
-                                                        <a href="<?= $item->link ?>" target="_blank"
-                                                            class="text-primary fw-semibold">
-                                                            <?= $item->link ?>
-                                                        </a>
-                                                    </td>
-
+                                                    <td class="text-center"><?= $item->name ?></td>
+                                                    <td class="text-center"><?= $item->email ?></td>
+                                                    <td class="text-center"><?= $item->password ?></td>
                                                     <td>
                                                         <div class="d-flex justify-content-center gap-2">
 
@@ -76,7 +60,7 @@ include '../../partials/header.php';
                                                                 Edit
                                                             </a>
 
-                                                            <a href="../../actions/cooperations/destroy.php?id=<?= $item->id ?>"
+                                                            <a href="../../actions/user/destroy.php?id=<?= $item->id ?>"
                                                                 onclick="return confirm('Yakin hapus data ini?')"
                                                                 class="btn btn-danger btn-sm d-flex align-items-center gap-1">
                                                                 <i class="ti ti-trash"></i>
@@ -86,28 +70,28 @@ include '../../partials/header.php';
                                                         </div>
                                                     </td>
                                                 </tr>
-                                            <?php endwhile; ?>
+                                            <?php
+                                                $no++;
+                                            endwhile;
+                                            ?>
                                         </tbody>
-
                                     </table>
-
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
         </main>
-
-        <?php include '../../partials/footer.php'; ?>
-
+        <?php
+        include '../../partials/footer.php';
+        ?>
     </div>
 </div>
 
-<?php include '../../partials/script.php'; ?>
-
+<?php
+include '../../partials/script.php';
+?>
 <style>
     /* ===== ANIMASI GRADIENT ===== */
     @keyframes gradientMove {

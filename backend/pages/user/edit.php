@@ -11,37 +11,46 @@ include '../../partials/header.php';
         <?php include '../../partials/navbar.php'; ?>
 
         <main class="content">
-            <!-- content -->
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5>Tabel edit data kontak</h5>
+                                <h5>Tabel edit data user</h5>
                             </div>
                             <div class="card-body">
                                 <?php
-                                include '../../actions/contact/show.php';
+                                include '../../actions/user/show.php';
                                 ?>
-                                <form action="../../actions/contact/update.php?id=<?= $contact->id ?>" method="POST" enctype="multipart/form-data">
+                                <form action="../../actions/user/update.php?id=<?= $user->id ?>" method="POST" enctype="multipart/form-data">
+
                                     <div class="mb-3">
-                                        <img class="w-25" src="../../../storages/contact/<?= $contact->image ?>" alt="">
-                                        <label for="imageInput" class="form-label"></label>
-                                        <input type="file" name="image" class="form-control" id="imageInput" required>
+                                        <label for="nameInput" class="form-label">Nama</label>
+                                        <input type="text" name="name" class="form-control" id="nameInput" placeholder="Masukan nama..." value="<?= $user->name ?>" required>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="linkInput" class="form-label">link kontak</label>
-                                        <input type="text" name="link" class="form-control" id="linkInput"
-                                            placeholder="Masukan link kerja sama...." value="<?= $contact->link ?>" required>
+                                        <label for="emailInput" class="form-label">Email</label>
+                                        <input type="text" name="email" class="form-control" id="emailInput" placeholder="Masukan email..." value="<?= $user->email ?>" required>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="keteranganInput" class="form-label">keterangan</label>
-                                        <input type="text" name="keterangan" class="form-control" id="keteranganInput"
-                                            placeholder="Masukan keterangan...." value="<?= $contact->keterangan ?>" required>
-                                    </div>
+                                        <label for="passwordInput" class="form-label">Password</label>
 
+                                        <div class="input-group">
+                                            <input
+                                                type="password"
+                                                name="password"
+                                                class="form-control"
+                                                id="passwordInput"
+                                                placeholder="Masukan password..."
+                                                value="<?= $user->password ?>"
+                                                required>
+                                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
 
                                     <button type="submit" class="btn btn-success" name="tombol">Simpan</button>
                                     <a href="./index.php" class="btn btn-primary">Kembali</a>

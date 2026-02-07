@@ -3,9 +3,9 @@ include '../../app.php';
 include './show.php';
 
 if (isset($_POST['tombol'])) {
-    $imageNew = $cooperation->image;
+    $imageNew = $cooperations->image;
     $link = escapeString($_POST['link']);
-    $storages = "../../../storages/cooperation/";
+    $storages = "../../../storages/cooperations/";
 
     //cek apakah user mengupload gambar baru
     if (!empty($_FILES['image']['tmp_name'])) {
@@ -13,8 +13,8 @@ if (isset($_POST['tombol'])) {
         $imageNew = time() . '.png';
 
         // hapus gambar lama jika ada
-        if (!empty($cooperation->image) && file_exists($storages . $cooperation->image)) {
-            unlink($storages . $cooperation->image);
+        if (!empty($cooperations->image) && file_exists($storages . $cooperations->image)) {
+            unlink($storages . $cooperations->image);
         }
 
         // simpan gambar baru
@@ -28,14 +28,14 @@ if (isset($_POST['tombol'])) {
         echo " 
          <script>    
             alert('Data berhasil diubah');
-            window.location.href='../../pages/cooperation/index.php';
+            window.location.href='../../pages/cooperations/index.php';
         </script>
             ";
     } else {
         echo "
          <script>    
             alert('Data gagal diubah');
-            window.location.href='../../pages/cooperation/create.php';
+            window.location.href='../../pages/cooperations/create.php';
          </script>
      ";
     }

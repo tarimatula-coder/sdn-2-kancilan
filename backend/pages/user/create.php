@@ -11,39 +11,37 @@ include '../../partials/header.php';
         <?php include '../../partials/navbar.php'; ?>
 
         <main class="content">
-            <!-- content -->
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5>Tabel edit data kontak</h5>
+                                <h5>Tambah Data User</h5>
                             </div>
                             <div class="card-body">
-                                <?php
-                                include '../../actions/contact/show.php';
-                                ?>
-                                <form action="../../actions/contact/update.php?id=<?= $contact->id ?>" method="POST" enctype="multipart/form-data">
+                                <form action="../../actions/user/store.php" method="POST" enctype="multipart/form-data">
+
                                     <div class="mb-3">
-                                        <img class="w-25" src="../../../storages/contact/<?= $contact->image ?>" alt="">
-                                        <label for="imageInput" class="form-label"></label>
-                                        <input type="file" name="image" class="form-control" id="imageInput" required>
+                                        <label for="nameInput" class="form-label">Nama</label>
+                                        <input type="text" name="name" class="form-control" id="nameInput" placeholder="Masukan nama..." required>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="linkInput" class="form-label">link kontak</label>
-                                        <input type="text" name="link" class="form-control" id="linkInput"
-                                            placeholder="Masukan link kerja sama...." value="<?= $contact->link ?>" required>
+                                        <label for="emailInput" class="form-label">Email</label>
+                                        <input type="email" name="email" class="form-control" id="emailInput" placeholder="Masukan email..." required>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="keteranganInput" class="form-label">keterangan</label>
-                                        <input type="text" name="keterangan" class="form-control" id="keteranganInput"
-                                            placeholder="Masukan keterangan...." value="<?= $contact->keterangan ?>" required>
+                                        <label for="passwordInput" class="form-label">Password</label>
+                                        <div class="input-group">
+                                            <input type="password" name="password" class="form-control" id="passwordInput" placeholder="Masukan password..." required>
+                                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                        </div>
                                     </div>
 
-
-                                    <button type="submit" class="btn btn-success" name="tombol">Simpan</button>
+                                    <button type="submit" class="btn btn-success" name="tombol">Tambah</button>
                                     <a href="./index.php" class="btn btn-primary">Kembali</a>
                                 </form>
                             </div>
@@ -89,7 +87,9 @@ include '../../partials/script.php';
                 /* hijau lembut */
             );
         background-size: 300% 300%;
-        animation: gradientMove 9s ease infinite;
+        animation:
+            fadeSlideUp 0.8s ease forwards,
+            gradientMove 9s ease infinite;
 
         border: none;
         border-radius: 16px;
@@ -115,26 +115,7 @@ include '../../partials/script.php';
     }
 
     .card-header h5 {
-        margin: 0;
         color: #ffffff;
         font-weight: 600;
-    }
-
-    /* ===== BUTTON ===== */
-    .btn-success {
-        background: linear-gradient(90deg, #059669, #16a34a);
-        border: none;
-    }
-
-    .btn-primary {
-        background: linear-gradient(90deg, #0ea5e9, #0284c7);
-        border: none;
-    }
-
-    .btn-success:hover,
-    .btn-primary:hover {
-        opacity: 0.9;
-        transform: translateY(-1px);
-        transition: 0.3s ease;
     }
 </style>
