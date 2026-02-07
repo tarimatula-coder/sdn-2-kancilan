@@ -18,10 +18,10 @@ include '../../partials/header.php';
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5>Tambah data kepala sekolah</h5>
+                                <h5>Tambah data pencapaian</h5>
                             </div>
                             <div class="card-body">
-                                <form action="../../actions/headmaster/store.php" method="POST" enctype="multipart/form-data">
+                                <form action="../../actions/pencapaian/store.php" method="POST" enctype="multipart/form-data">
 
                                     <div class="mb-3">
                                         <label for="imageInput" class="form-label">pilih gambar</label>
@@ -29,8 +29,28 @@ include '../../partials/header.php';
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="nameInput" class="form-label">Nama</label>
-                                        <input type="text" name="name" class="form-control" id="nameInput" placeholder="Masukkan Nama..." required>
+                                        <label for="namaInput" class="form-label">Nama</label>
+                                        <input type="text" name="nama" class="form-control" id="namaInput" placeholder="Masukkan Nama..." required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="kategoriInput" class="form-label">Kategori</label>
+                                        <input type="text" name="kategori" class="form-control" id="kategoriInput" placeholder="Masukkan Kategori..." required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="tingkatInput" class="form-label">Tingkat</label>
+                                        <input type="text" name="tingkat" class="form-control" id="tingkatInput" placeholder="Masukkan Tingkat..." required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="tahunInput" class="form-label">Tahun</label>
+                                        <input type="text" name="tahun" class="form-control" id="tahunInput" placeholder="Masukkan Tahun..." required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="peraihInput" class="form-label">Peraih</label>
+                                        <input type="text" name="peraih" class="form-control" id="peraihInput" placeholder="Masukkan Peraih..." required>
                                     </div>
 
                                     <div class="mb-3">

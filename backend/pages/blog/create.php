@@ -18,10 +18,10 @@ include '../../partials/header.php';
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5>Tambah data kepala sekolah</h5>
+                                <h5>Tambah data blog</h5>
                             </div>
                             <div class="card-body">
-                                <form action="../../actions/headmaster/store.php" method="POST" enctype="multipart/form-data">
+                                <form action="../../actions/blog/store.php" method="POST" enctype="multipart/form-data">
 
                                     <div class="mb-3">
                                         <label for="imageInput" class="form-label">pilih gambar</label>
@@ -29,8 +29,18 @@ include '../../partials/header.php';
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="nameInput" class="form-label">Nama</label>
-                                        <input type="text" name="name" class="form-control" id="nameInput" placeholder="Masukkan Nama..." required>
+                                        <label for="judulInput" class="form-label">judul</label>
+                                        <input type="text" name="judul" class="form-control" id="judulInput" placeholder="Masukkan judul..." required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="tanggalInput" class="form-label">tanggal</label>
+                                        <input type="date" name="tanggal" class="form-control" id="tanggalInput" placeholder="Masukkan tanggal..."  required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="penulisInput" class="form-label">penulis</label>
+                                        <input type="text" name="penulis" class="form-control" id="penulisInput" placeholder="Masukkan penulis..." required>
                                     </div>
 
                                     <div class="mb-3">

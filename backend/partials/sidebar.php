@@ -50,14 +50,14 @@
             </li>
 
             <li class="sidebar-item">
-                <a class="sidebar-link" href="ui-forms.html">
-                    <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Forms</span>
+                <a class="sidebar-link" href="../pencapaian/index.php">
+                    <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Pencapaian</span>
                 </a>
             </li>
 
             <li class="sidebar-item">
-                <a class="sidebar-link" href="ui-cards.html">
-                    <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Cards</span>
+                <a class="sidebar-link" href="../blog/index.php">
+                    <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Blog</span>
                 </a>
             </li>
 
