@@ -35,3 +35,60 @@
         </ul>
     </div>
 </nav>
+<style>
+    /* ===== ANIMASI GRADASI NAVBAR ===== */
+    @keyframes navbarGradient {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    /* ===== NAVBAR UTAMA ===== */
+    .navbar-bg {
+        background: linear-gradient(90deg,
+                #0f766e,
+                /* hijau */
+                #0ea5e9,
+                /* biru */
+                #1d4ed8,
+                /* biru tua */
+                #22c55e
+                /* hijau cerah */
+            ) !important;
+
+        background-size: 400% 400% !important;
+        animation: navbarGradient 14s ease-in-out infinite !important;
+        border: none;
+    }
+
+    /* ===== ICON & TEKS NAVBAR ===== */
+    .navbar a,
+    .navbar i,
+    .navbar span {
+        color: #ffffff !important;
+    }
+
+    /* ===== AVATAR TEXT ===== */
+    .navbar .text-dark {
+        color: #ffffff !important;
+    }
+
+    /* ===== NOTIFICATION BADGE ===== */
+    .navbar .indicator {
+        background-color: #22c55e !important;
+        color: #ffffff;
+    }
+
+    /* ===== MATIKAN HOVER ===== */
+    .navbar a:hover {
+        background: transparent !important;
+    }
+</style>
