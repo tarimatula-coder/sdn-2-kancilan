@@ -78,14 +78,20 @@
             </li>
 
             <li class="sidebar-item">
-                <a class="sidebar-link" href="charts-chartjs.html">
-                    <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Charts</span>
+                <a class="sidebar-link" href="../message/index.php">
+                    <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Message</span>
                 </a>
             </li>
 
             <li class="sidebar-item">
-                <a class="sidebar-link" href="maps-google.html">
-                    <i class="align-middle" data-feather="map"></i> <span class="align-middle">Maps</span>
+                <a class="sidebar-link" href="../social_media/index.php">
+                    <i class="align-middle" data-feather="map"></i> <span class="align-middle">Sosial media</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="../galleries/index.php">
+                    <i class="align-middle" data-feather="map"></i> <span class="align-middle">Galleri</span>
                 </a>
             </li>
         </ul>
