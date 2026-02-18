@@ -33,12 +33,6 @@ $resultgalleri = mysqli_query($connect, $qgalleri) or die(mysqli_error($connect)
                         <img src="../storages/galleri/<?= htmlspecialchars($item->image) ?>"
                             alt="Galeri">
 
-                        <!-- Konten -->
-                        <div class="content d-flex flex-column flex-fill">
-                            <h5><?= htmlspecialchars(substr($item->keterangan, 0, 100)) ?></h5>
-                            <div class="mt-auto"></div>
-                        </div>
-
                     </div>
                 </div>
             <?php endwhile; ?>

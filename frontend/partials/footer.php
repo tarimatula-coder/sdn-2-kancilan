@@ -1,46 +1,129 @@
-<!-- ======= Footer ======= -->
-<footer id="footer">
+<?php
+$qsocial_media = "SELECT * FROM social_media LIMIT 3";
+$resultsocial_media = mysqli_query($connect, $qsocial_media) or die(mysqli_error($connect));
+
+$qabout = "SELECT * FROM about LIMIT 1";
+$resultabout = mysqli_query($connect, $qabout) or die(mysqli_error($connect));
+$about = mysqli_fetch_object(mysqli_query($connect, $qabout));
+?>
+<footer id="footer" style="background-image: url('../storages/about/<?= $about->banner ?>');">
 
     <div class="footer-top">
 
         <div class="container">
-
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <a href="#header" class="scrollto footer-logo"><img src="knight-v.01/assets/img/hero-logo.png" alt=""></a>
-                    <h3>Knight</h3>
-                    <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+            <?php while ($item = $resultsocial_media->fetch_object()) : ?>
+                <div class="row justify-content-center">
+                    <div class="col-lg-7">
+                        <a href="#header" class="scrollto footer-logo"><!-- Gambar -->
+                            <ul class="footer-menu">
+                                <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                                <li><a class="nav-link scrollto" href="#headmaster">Kepala sekolah</a></li>
+                                <li><a class="nav-link scrollto" href="#ekstrakulikuler">Ekstrakulikuler</a></li>
+                                <li><a class="nav-link scrollto " href="#pencapaian">Pencapaian</a></li>
+                                <li><a class="nav-link scrollto" href="#blog">Blog</a></li>
+                                <li><a class="nav-link scrollto" href="#visi_misi">Visi Misi</a></li>
+                                <li><a class="nav-link scrollto" href="#guru">Guru</a></li>
+                                <li><a class="nav-link scrollto" href="#contact">contact</a></li>
+                            </ul>
+                    </div>
                 </div>
-            </div>
-
-            <div class="row footer-newsletter justify-content-center">
-                <div class="col-lg-6">
-                    <form action="" method="post">
-                        <input type="email" name="email" placeholder="Enter your Email"><input type="submit" value="Subscribe">
-                    </form>
-                </div>
-            </div>
-
-            <div class="social-links">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
-
+                <a href="<?= $item->link ?>"><img src="../storages/social_media/<?= $item->icon; ?>" alt="<?= $item->icon; ?>" style=" width: 60px; height:60px; border-radius: 50%;"></a>
         </div>
     </div>
 
     <div class="container footer-bottom clearfix">
         <div class="copyright">
-            &copy; Copyright <strong><span>Knight</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-            Designed by <a href="https://bootstrapmade.com/" target="_blank">BootstrapMade</a>
-        </div>
-        <div class="credits">
-            Distributed by <a href="https://themewagon.com/" target="_blank">Themewagon</a>
+            &copy; Aslamiyah <strong><span>web develompent</span></strong>. Desainer UI/UX
         </div>
     </div>
-</footer><!-- End Footer -->
+<?php endwhile; ?>
+</footer>
+<style>
+    #footer {
+        width: 100%;
+        background-size: cover;
+        /* MELEBAR */
+        background-position: center;
+        /* TENGAH */
+        background-repeat: no-repeat;
+        /* TIDAK NGULANG */
+    }
+
+    /* overlay agar teks terbaca */
+    .footer-overlay {
+        background: rgba(27, 94, 32, 0.85);
+        padding: 60px 0 40px;
+    }
+
+    .footer-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        display: flex;
+        flex-direction: column;
+        /* arah ke bawah */
+        flex-wrap: wrap;
+        /* boleh pindah ke samping */
+        height: 140px;
+        /* KUNCI: tinggi untuk 4 item */
+        gap: 8px 40px;
+        /* jarak vertikal & horizontal */
+    }
+
+    .footer-menu li {
+        list-style: none;
+    }
+
+    .footer-menu li a {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 14px;
+        transition: color 0.3s ease;
+    }
+
+    .footer-menu li a:hover {
+        color: #a5d6a7;
+    }
+
+    @media (max-width: 768px) {
+        .footer-menu {
+            height: auto;
+            flex-direction: column;
+        }
+    }
+
+
+    /* SOCIAL MEDIA FOOTER */
+    .footer-social {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    /* Icon */
+    .footer-social img {
+        width: 36px;
+        /* lebih kecil */
+        height: 36px;
+        border-radius: 50%;
+        background: #ffffff;
+        padding: 5px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Hover */
+    .footer-social img:hover {
+        transform: scale(1.15);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    @media (max-width: 768px) {
+        .footer-social img {
+            width: 32px;
+            height: 32px;
+        }
+    }
+</style>

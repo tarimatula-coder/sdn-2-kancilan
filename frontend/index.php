@@ -13,8 +13,8 @@
     include 'pages/pencapaian.php';
     include 'pages/blog.php';
     include 'pages/galleri.php';
-    // include 'pages/message.php';
     include 'pages/contact.php';
+    // include 'pages/message.php';
     ?>
 </body>
 
