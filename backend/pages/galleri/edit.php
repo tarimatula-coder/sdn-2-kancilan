@@ -11,39 +11,32 @@ include '../../partials/header.php';
         <?php include '../../partials/navbar.php'; ?>
 
         <main class="content">
-
-            <!-- content -->
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5>Tambah data ekstrakulikuler</h5>
+                                <h5>Tabel edit data Galleri</h5>
                             </div>
                             <div class="card-body">
-                                <form action="../../actions/ekstrakulikuler/store.php" method="POST" enctype="multipart/form-data">
+                                <?php
+                                include '../../actions/galleri/show.php';
+                                ?>
+                                <form action="../../actions/galleri/update.php?id=<?= $galleri->id ?>" method="POST" enctype="multipart/form-data">
 
                                     <div class="mb-3">
+                                        <label for="keteranganInput" class="form-label">Keterangan</label>
+                                        <input type="text" name="keterangan" class="form-control" id="keterangan" placeholder="Masukan keterangan...." value="<?= $galleri->keterangan ?>" required>
+                                    </div>
+
+
+                                    <div class="mb-3">
+                                        <img class="w-25" src="../../../storages/galleri/<?= $galleri->image ?>" alt="">
                                         <label for="imageInput" class="form-label">pilih gambar</label>
                                         <input type="file" name="image" class="form-control" id="imageInput" required>
                                     </div>
 
-                                    <div class="mb-3">
-                                        <label for="namaInput" class="form-label">Nama</label>
-                                        <input type="text" name="nama" class="form-control" id="namaInput" placeholder="Masukkan Nama..." required>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="pembinaInput" class="form-label">Pembina</label>
-                                        <input type="text" name="pembina" class="form-control" id="pembinaInput" placeholder="Masukkan Nama Pembina..." required>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="keteranganInput" class="form-label">Keterangan</label>
-                                        <input type="text" name="keterangan" class="form-control" id="keterangan" placeholder="Masukan keterangan...." required>
-                                    </div>
-
-                                    <button type="submit" class="btn btn-success" name="tombol">Tambah</button>
+                                    <button type="submit" class="btn btn-success" name="tombol">Simpan</button>
                                     <a href="./index.php" class="btn btn-primary">Kembali</a>
                                 </form>
                             </div>
@@ -51,11 +44,12 @@ include '../../partials/header.php';
                     </div>
                 </div>
             </div>
-        </main>
-        <?php
-        include '../../partials/footer.php';
-        ?>
     </div>
+    </main>
+    <?php
+    include '../../partials/footer.php';
+    ?>
+</div>
 </div>
 <?php
 include '../../partials/script.php';
@@ -89,9 +83,7 @@ include '../../partials/script.php';
                 /* hijau lembut */
             );
         background-size: 300% 300%;
-        animation:
-            fadeSlideUp 0.8s ease forwards,
-            gradientMove 9s ease infinite;
+        animation: gradientMove 9s ease infinite;
 
         border: none;
         border-radius: 16px;
@@ -117,7 +109,26 @@ include '../../partials/script.php';
     }
 
     .card-header h5 {
+        margin: 0;
         color: #ffffff;
         font-weight: 600;
+    }
+
+    /* ===== BUTTON ===== */
+    .btn-success {
+        background: linear-gradient(90deg, #059669, #16a34a);
+        border: none;
+    }
+
+    .btn-primary {
+        background: linear-gradient(90deg, #0ea5e9, #0284c7);
+        border: none;
+    }
+
+    .btn-success:hover,
+    .btn-primary:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+        transition: 0.3s ease;
     }
 </style>

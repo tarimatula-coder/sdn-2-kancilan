@@ -18,7 +18,7 @@ include '../../partials/header.php';
                         <div class="card shadow-sm">
 
                             <div class="card-header d-flex align-items-center justify-content-between">
-                                <h5 class="mb-0 fw-bold">Tabel ekstrakulikuler</h5>
+                                <h5 class="mb-0 fw-bold">Tabel about</h5>
                                 <a href="./create.php" class="btn btn-primary btn-sm">
                                     Tambah
                                 </a>
@@ -33,10 +33,11 @@ include '../../partials/header.php';
                                         <thead class="table-dark">
                                             <tr>
                                                 <th class="text-center">No</th>
-                                                <th class="text-center">Gambar</th>
+                                                <th class="text-center">Logo</th>
+                                                <th class="text-center">Banner</th>
                                                 <th class="text-center">Nama</th>
-                                                <th class="text-center">Pembina</th>
                                                 <th class="text-center">Keterangan</th>
+                                                <th class="text-center">Alamat</th>
                                                 <th class="text-center">Aksi</th>
                                             </tr>
                                         </thead>
@@ -44,21 +45,28 @@ include '../../partials/header.php';
                                         <tbody>
                                             <?php
                                             $no = 1;
-                                            $result = mysqli_query($connect, "SELECT * FROM ekstrakulikuler");
+                                            $result = mysqli_query($connect, "SELECT * FROM about");
                                             while ($item = mysqli_fetch_object($result)):
                                             ?>
                                                 <tr>
                                                     <td><?= $no++ ?></td>
 
                                                     <td>
-                                                        <img src="../../../storages/ekstrakulikuler/<?= $item->image ?>"
+                                                        <img src="../../../storages/about/<?= $item->logo ?>"
                                                             class="img-thumbnail"
-                                                            style="width:90px; height:90px; object-fit:cover;">
+                                                            style="width:150px; height:auto;">
                                                     </td>
 
-                                                    <td class="text-center"><?= $item->nama ?></td>
-                                                    <td class="text-center"><?= $item->pembina ?></td>
+                                                    <td>
+                                                        <img src="../../../storages/about/<?= $item->banner ?>"
+                                                            class="img-thumbnail"
+                                                            style="width:150px; height:auto;">
+                                                    </td>
+
+
+                                                    <td class="text-center"><?= $item->name ?></td>
                                                     <td class="text-center"><?= $item->keterangan ?></td>
+                                                    <td class="text-center"><?= $item->alamat ?></td>
 
                                                     <td>
                                                         <div class="d-flex justify-content-center gap-2">
@@ -75,7 +83,7 @@ include '../../partials/header.php';
                                                                 Edit
                                                             </a>
 
-                                                            <a href="../../actions/ekstrakulikuler/destroy.php?id=<?= $item->id ?>"
+                                                            <a href="../../actions/about/destroy.php?id=<?= $item->id ?>"
                                                                 onclick="return confirm('Yakin hapus data ini?')"
                                                                 class="btn btn-danger btn-sm d-flex align-items-center gap-1">
                                                                 <i class="ti ti-trash"></i>

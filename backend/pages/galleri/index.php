@@ -1,5 +1,7 @@
 <?php
 include '../../partials/header.php';
+$qGalleris = "SELECT * FROM galleries";
+$result = mysqli_query($connect, $qGalleris) or die(mysqli_error($connect));
 ?>
 
 <div class="wrapper">
@@ -11,55 +13,40 @@ include '../../partials/header.php';
         <?php include '../../partials/navbar.php'; ?>
 
         <main class="content">
-            <div class="container-fluid p-0">
-
+            <!-- content -->
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                        <div class="card shadow-sm">
-
+                        <div class="card">
                             <div class="card-header d-flex align-items-center justify-content-between">
-                                <h5 class="mb-0 fw-bold">Tabel ekstrakulikuler</h5>
-                                <a href="./create.php" class="btn btn-primary btn-sm">
-                                    Tambah
-                                </a>
+                                <h5>Tabel Galeri</h5>
+                                <a href="./create.php" class="btn btn-primary">Tambah</a>
                             </div>
-
                             <div class="card-body">
                                 <div class="table-responsive">
-
                                     <table id="datatable"
                                         class="table table-bordered table-hover align-middle text-center w-100">
-
                                         <thead class="table-dark">
                                             <tr>
                                                 <th class="text-center">No</th>
                                                 <th class="text-center">Gambar</th>
-                                                <th class="text-center">Nama</th>
-                                                <th class="text-center">Pembina</th>
                                                 <th class="text-center">Keterangan</th>
                                                 <th class="text-center">Aksi</th>
                                             </tr>
                                         </thead>
-
                                         <tbody>
                                             <?php
                                             $no = 1;
-                                            $result = mysqli_query($connect, "SELECT * FROM ekstrakulikuler");
-                                            while ($item = mysqli_fetch_object($result)):
+                                            while ($item = $result->fetch_object()):
                                             ?>
                                                 <tr>
-                                                    <td><?= $no++ ?></td>
-
+                                                    <td class="text-center"><?= $no ?></td>
                                                     <td>
-                                                        <img src="../../../storages/ekstrakulikuler/<?= $item->image ?>"
+                                                        <img src="../../../storages/galleri/<?= $item->image ?>"
                                                             class="img-thumbnail"
-                                                            style="width:90px; height:90px; object-fit:cover;">
+                                                            style="width:150px; height:auto;">
                                                     </td>
-
-                                                    <td class="text-center"><?= $item->nama ?></td>
-                                                    <td class="text-center"><?= $item->pembina ?></td>
                                                     <td class="text-center"><?= $item->keterangan ?></td>
-
                                                     <td>
                                                         <div class="d-flex justify-content-center gap-2">
 
@@ -75,7 +62,7 @@ include '../../partials/header.php';
                                                                 Edit
                                                             </a>
 
-                                                            <a href="../../actions/ekstrakulikuler/destroy.php?id=<?= $item->id ?>"
+                                                            <a href="../../actions/galleri/destroy.php?id=<?= $item->id ?>"
                                                                 onclick="return confirm('Yakin hapus data ini?')"
                                                                 class="btn btn-danger btn-sm d-flex align-items-center gap-1">
                                                                 <i class="ti ti-trash"></i>
@@ -85,28 +72,23 @@ include '../../partials/header.php';
                                                         </div>
                                                     </td>
                                                 </tr>
-                                            <?php endwhile; ?>
+                                            <?php
+                                                $no++;
+                                            endwhile;
+                                            ?>
                                         </tbody>
-
                                     </table>
-
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
         </main>
-
         <?php include '../../partials/footer.php'; ?>
-
     </div>
 </div>
-
 <?php include '../../partials/script.php'; ?>
-
 <style>
     /* ===== ANIMASI GRADIENT ===== */
     @keyframes gradientMove {

@@ -2,29 +2,27 @@
 include '../../app.php';
 
 if (isset($_POST['tombol'])) {
+    $keterangan = escapeString($_POST['keterangan']);
 
     $imageOld = $_FILES['image']['tmp_name'];
     $imageNew = time() . ".png";
-    $nama = escapeString($_POST['nama']);
-    $pembina = escapeString($_POST['pembina']);
-    $keterangan = escapeString($_POST['keterangan']);
 
-    $storages = "../../../storages/ekstrakulikuler/";
+    $storages = "../../../storages/galleri/";
     if (move_uploaded_file($imageOld, $storages . $imageNew)) {
-        $qInsert = "INSERT INTO ekstrakulikuler(image, nama, pembina, keterangan) VALUES('$imageNew', '$nama', '$pembina', '$keterangan')";
+        $qInsert = "INSERT INTO galleries (keterangan, image) VALUES('$keterangan','$imageNew')";
 
         mysqli_query($connect, $qInsert) or die(mysqli_error($connect));
         echo " 
     <script>    
         alert('Data berhasil ditambah');
-        window.location.href='../../pages/ekstrakulikuler/index.php';
+        window.location.href='../../pages/galleri/index.php';
     </script>
             ";
     } else {
         echo "
     <script>    
         alert('Data gagal ditambah');
-        window.location.href='../../pages/ekstrakulikuler/create.php';
+        window.location.href='../../pages/galleri/create.php';
     </script>
     ";
     }

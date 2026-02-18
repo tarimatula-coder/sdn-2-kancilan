@@ -15,6 +15,18 @@
                 </a>
             </li>
 
+            <li class="sidebar-item active">
+                <a class="sidebar-link" href="../about/index.php">
+                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">About</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item active">
+                <a class="sidebar-link" href="../galleri/index.php">
+                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Galleri</span>
+                </a>
+            </li>
+
             <li class="sidebar-item">
                 <a class="sidebar-link" href="../cooperations/index.php">
                     <i class="align-middle" data-feather="user"></i> <span class="align-middle">Kerja sama</span>

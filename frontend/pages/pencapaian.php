@@ -131,7 +131,7 @@ $resultpencapaian = mysqli_query($connect, $qpencapaian) or die(mysqli_error($co
                                 <ul class="pencapaian-list">
                                     <li>KATEGORI: <?= strtoupper(htmlspecialchars($item->kategori)) ?></li>
                                     <li>TINGKAT: <?= strtoupper(htmlspecialchars($item->tingkat)) ?></li>
-                                    <li>DESKRIPSI: <?= strtoupper(htmlspecialchars($item->keterangan)) ?></li>
+                                    <li>PRESTASI: <?= strtoupper(htmlspecialchars($item->keterangan)) ?></li>
                                 </ul>
                             </div>
                         </a>

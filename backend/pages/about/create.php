@@ -11,36 +11,41 @@ include '../../partials/header.php';
         <?php include '../../partials/navbar.php'; ?>
 
         <main class="content">
-
-            <!-- content -->
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5>Tambah data ekstrakulikuler</h5>
+                                <h5>Tambah data about</h5>
                             </div>
                             <div class="card-body">
-                                <form action="../../actions/ekstrakulikuler/store.php" method="POST" enctype="multipart/form-data">
+                                <form action="../../actions/about/store.php" method="POST" enctype="multipart/form-data">
 
                                     <div class="mb-3">
-                                        <label for="imageInput" class="form-label">pilih gambar</label>
-                                        <input type="file" name="image" class="form-control" id="imageInput" required>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="namaInput" class="form-label">Nama</label>
-                                        <input type="text" name="nama" class="form-control" id="namaInput" placeholder="Masukkan Nama..." required>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="pembinaInput" class="form-label">Pembina</label>
-                                        <input type="text" name="pembina" class="form-control" id="pembinaInput" placeholder="Masukkan Nama Pembina..." required>
+                                        <label for="nameInput" class="form-label">Nama</label>
+                                        <input type="text" name="name" class="form-control" id="nameInput" placeholder="Masukan Nama...." required>
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="keteranganInput" class="form-label">Keterangan</label>
-                                        <input type="text" name="keterangan" class="form-control" id="keterangan" placeholder="Masukan keterangan...." required>
+                                        <input type="text" name="keterangan" class="form-control" id="keteranganInput" placeholder="Masukan keterangan..." required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="alamatInput" class="form-label">Alamat</label>
+                                        <textarea name="alamat" id="alamat" class="form-control" placeholder="Masukan alamat" rows="5"></textarea>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <img class="w-25" src="../../../storages/about/" alt="">
+                                        <label for="logoInput" class="form-label">pilih gambar</label>
+                                        <input type="file" name="logo" class="form-control" id="logoInput">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <img class="w-25" src="../../../storages/about/" alt="">
+                                        <label for="bannerInput" class="form-label">pilih gambar</label>
+                                        <input type="file" name="banner" class="form-control" id="bannerInput">
                                     </div>
 
                                     <button type="submit" class="btn btn-success" name="tombol">Tambah</button>
@@ -52,14 +57,10 @@ include '../../partials/header.php';
                 </div>
             </div>
         </main>
-        <?php
-        include '../../partials/footer.php';
-        ?>
+        <?php include '../../partials/footer.php'; ?>
     </div>
 </div>
-<?php
-include '../../partials/script.php';
-?>
+<?php include '../../partials/script.php'; ?>
 <style>
     /* ===== ANIMASI GRADIENT ===== */
     @keyframes gradientMove {

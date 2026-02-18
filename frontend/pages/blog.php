@@ -1,42 +1,43 @@
 <?php
-$qekstrakulikuler = "SELECT * FROM ekstrakulikuler LIMIT 3";
-$resultekstrakulikuler = mysqli_query($connect, $qekstrakulikuler) or die(mysqli_error($connect));
+$qBlog = "SELECT * FROM blog LIMIT 3";
+$resultBlog = mysqli_query($connect, $qBlog) or die(mysqli_error($connect));
 ?>
 
-<section id="ekstrakulikuler">
+<section id="blog">
     <div class="container">
 
         <!-- Judul Section -->
         <div class="row">
             <div class="col-12">
                 <div class="intro text-center">
-                    <h1>ekstrakulikuler</h1>
-                    <p class="mx-auto" style="max-width: 600px;">Berikut ini adalah artikel/ekstrakulikuler yang ada di SMKN 1 Bangsri</p>
+                    <h1>Blog</h1>
+                    <p class="mx-auto" style="max-width: 600px;">Berikut ini adalah artikel/blog yang ada di SMKN 1 Bangsri</p>
                 </div>
             </div>
         </div>
 
-        <!-- Daftar ekstrakulikuler -->
+        <!-- Daftar Blog -->
         <div class="row text-center d-flex align-items-stretch">
-            <?php while ($item = $resultekstrakulikuler->fetch_object()) : ?>
+            <?php while ($item = $resultBlog->fetch_object()) : ?>
                 <div class="col-md-4 d-flex">
-                    <a href="./pages/detail/ekstrakulikuler.php?id=<?= $item->id ?>" class="ekstrakulikuler-post-link flex-fill">
-                        <article class="ekstrakulikuler-post d-flex flex-column">
-                            <!-- Label ekstrakulikuler -->
+                    <a href="./pages/detail/blog.php?id=<?= $item->id ?>" class="blog-post-link flex-fill">
+                        <article class="blog-post d-flex flex-column">
+                            <!-- Label Blog -->
                             <span class="tag">
-                                <i class='bx bxs-news'></i> ekstrakulikuler
+                                <i class='bx bxs-news'></i> Blog
                             </span>
 
                             <!-- Gambar -->
-                            <img src="../storages/ekstrakulikuler/<?= htmlspecialchars($item->image) ?>"
-                                alt="<?= htmlspecialchars($item->nama) ?>">
+                            <img src="../storages/blog/<?= htmlspecialchars($item->image) ?>"
+                                alt="<?= htmlspecialchars($item->judul) ?>">
 
                             <!-- Konten -->
                             <div class="content d-flex flex-column flex-fill">
                                 <div class="meta">
-                                    <span><i class="bx bx-user"></i> <?= htmlspecialchars($item->pembina) ?></span>
+                                    <span><i class="bx bx-calendar"></i> <?= htmlspecialchars($item->tanggal) ?></span>
+                                    <span><i class="bx bx-user"></i> <?= htmlspecialchars($item->penulis) ?></span>
                                 </div>
-                                <h5><?= htmlspecialchars(substr($item->nama, 0, 100)) ?></h5>
+                                <h5><?= htmlspecialchars(substr($item->judul, 0, 100)) ?></h5>
                                 <p class="mb-3"><?= htmlspecialchars(substr($item->keterangan, 0, 100)) ?>...</p>
                                 <!-- Spacer biar konten bawah rata -->
                                 <div class="mt-auto"></div>
@@ -49,7 +50,7 @@ $resultekstrakulikuler = mysqli_query($connect, $qekstrakulikuler) or die(mysqli
             <!-- Tombol Lihat Semua -->
             <div class="row mt-4">
                 <div class="col-12 text-center mt-4">
-                    <a href="./pages/detail/allekstrakulikuler.php" class="btn btn-primary">Lihat semua</a>
+                    <a href="./pages/detail/allBlog.php" class="btn btn-primary">Lihat semua</a>
                 </div>
             </div>
         </div>
@@ -58,16 +59,16 @@ $resultekstrakulikuler = mysqli_query($connect, $qekstrakulikuler) or die(mysqli
 
 <!-- CSS -->
 <style>
-    /* Link ekstrakulikuler */
-    .ekstrakulikuler-post-link {
+    /* Link Blog */
+    .blog-post-link {
         text-decoration: none;
         color: inherit;
         display: flex;
         flex: 1;
     }
 
-    /* Box ekstrakulikuler */
-    .ekstrakulikuler-post {
+    /* Box Blog */
+    .blog-post {
         background: #fff;
         border-radius: 15px;
         overflow: hidden;
@@ -76,15 +77,15 @@ $resultekstrakulikuler = mysqli_query($connect, $qekstrakulikuler) or die(mysqli
         flex: 1;
     }
 
-    .ekstrakulikuler-post:hover {
+    .blog-post:hover {
         transform: translateY(-5px);
         box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
     }
 
     /* Gambar */
-    .ekstrakulikuler-post img {
+    .blog-post img {
         width: 100%;
-        height: 320px;
+        height: 370px;
         object-fit: cover;
         border-bottom: 4px solid #eee;
     }
@@ -103,7 +104,7 @@ $resultekstrakulikuler = mysqli_query($connect, $qekstrakulikuler) or die(mysqli
         position: absolute;
         top: 15px;
         left: 15px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
         z-index: 2;
     }
 
@@ -112,7 +113,7 @@ $resultekstrakulikuler = mysqli_query($connect, $qekstrakulikuler) or die(mysqli
     }
 
     /* Content */
-    .ekstrakulikuler-post .content {
+    .blog-post .content {
         padding: 15px;
         text-align: left;
         flex: 1;
@@ -120,14 +121,14 @@ $resultekstrakulikuler = mysqli_query($connect, $qekstrakulikuler) or die(mysqli
         flex-direction: column;
     }
 
-    .ekstrakulikuler-post .content p {
+    .blog-post .content p {
         font-size: 14px;
         color: #555;
         margin-bottom: 0;
     }
 
     /* Meta Info */
-    .ekstrakulikuler-post .content .meta {
+    .blog-post .content .meta {
         display: flex;
         align-items: center;
         gap: 15px;
@@ -136,7 +137,7 @@ $resultekstrakulikuler = mysqli_query($connect, $qekstrakulikuler) or die(mysqli
         margin-bottom: 8px;
     }
 
-    .ekstrakulikuler-post .content .meta i {
+    .blog-post .content .meta i {
         color: #3498db;
         font-size: 16px;
     }
