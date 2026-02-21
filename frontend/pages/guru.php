@@ -1,200 +1,242 @@
 <?php
-$qguru = "SELECT * FROM guru";
-$resultguru = mysqli_query($connect, $qguru) or die(mysqli_error($connect));
+$qGuru = "SELECT * FROM guru LIMIT 3";
+$resultGuru = mysqli_query($connect, $qGuru) or die(mysqli_error($connect));
 ?>
 
-<style>
-    /* =============================
-   TEAM SECTION
-============================= */
-    .team {
-        padding: 60px 0;
-        background: #f8f9fa;
-    }
-
-    .section-title h2 {
-        font-weight: 700;
-        font-size: 32px;
-    }
-
-    .section-title p {
-        color: #6c757d;
-    }
-
-    /* =============================
-   WRAPPER CARD
-============================= */
-    .modern-card {
-        position: relative;
-        display: block;
-        padding: 22px;
-    }
-
-    /* =============================
-   LAYER BELAKANG
-============================= */
-    .modern-card::before {
-        content: "";
-        position: absolute;
-        width: 300px;
-        height: 380px;
-        background: linear-gradient(135deg, #e53935, #ff7043);
-        border-radius: 20px;
-        top: 0;
-        left: 0;
-        z-index: 0;
-    }
-
-    .modern-card::after {
-        content: "";
-        position: absolute;
-        width: 300px;
-        height: 380px;
-        background: #1b263b;
-        border-radius: 20px;
-        top: 10px;
-        left: 10px;
-        z-index: 1;
-    }
-
-    /* =============================
-   FRAME FOTO
-============================= */
-    .image-wrapper {
-        position: relative;
-        width: 300px;
-        height: 380px;
-        background: #0d1b2a;
-        border-radius: 20px;
-        padding: 10px;
-        z-index: 2;
-        /* box-shadow: 0 28px 55px rgba(0, 0, 0, 0.35); */
-    }
-
-    .image-wrapper img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 16px;
-    }
-
-    /* Label */
-    .card-label {
-        position: absolute;
-        top: 16px;
-        left: 16px;
-        background: #0d6efd;
-        color: #fff;
-        padding: 7px 16px;
-        font-size: 13px;
-        border-radius: 50px;
-        font-weight: 500;
-    }
-
-    /* =============================
-   CARD INFO (LEGA & KIRI)
-============================= */
-    .card-body {
-        position: relative;
-        z-index: 3;
-        margin-top: 14px;
-        width: 100%;
-        max-width: 260px;
-        background: rgba(255, 255, 255, 0.97);
-        border-radius: 16px;
-        padding: 18px 22px;
-        /* box-shadow: 0 16px 28px rgba(0, 0, 0, 0.25); */
-        border-bottom: 5px solid #e53935;
-    }
-
-    /* TEXT */
-    .card-name {
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: #0d1b2a;
-        margin-bottom: 6px;
-        text-align: center;
-    }
-
-    .card-mapel {
-        font-size: 14px;
-        color: #495057;
-        margin-bottom: 4px;
-        line-height: 1.4;
-        text-align: center;
-    }
-
-    .card-gender {
-        font-size: 13px;
-        color: #6c757d;
-        opacity: 0.85;
-        text-align: center;
-    }
-
-    /* =============================
-   RESPONSIVE
-============================= */
-    @media (max-width: 992px) {
-
-        .image-wrapper,
-        .modern-card::before,
-        .modern-card::after {
-            width: 260px;
-            height: 330px;
-        }
-    }
-
-    @media (max-width: 576px) {
-
-        .image-wrapper,
-        .modern-card::before,
-        .modern-card::after {
-            width: 220px;
-            height: 280px;
-        }
-
-        .card-body {
-            max-width: 220px;
-            padding: 14px 16px;
-            border-bottom-width: 4px;
-        }
-
-        .card-name {
-            font-size: 1rem;
-        }
-    }
-</style>
-
-<section id="team" class="team">
+<!-- =============================
+ SECTION GURU
+============================= -->
+<section id="guru">
     <div class="container">
 
-        <div class="section-title text-center mb-5">
-            <h2>Team Guru</h2>
-            <p>Guru terbaik yang membimbing siswa dengan profesional dan penuh dedikasi</p>
+        <!-- JUDUL -->
+        <div class="row">
+            <div class="col-12">
+                <div class="intro text-center mb-5">
+                    <h1>Guru</h1>
+                    <p class="mx-auto" style="max-width:600px;">
+                        Guru terbaik yang membimbing siswa dengan profesional dan penuh dedikasi
+                    </p>
+                </div>
+            </div>
         </div>
 
-        <div class="row g-4">
-            <?php while ($item = $resultguru->fetch_object()) : ?>
-                <div class="col-lg-4 col-md-6">
-                    <a href="./pages/detail/guru.php?id=<?= $item->id ?>" style="text-decoration:none; color:inherit;">
+        <!-- CARD GURU -->
+        <div class="row text-center d-flex align-items-stretch">
+            <?php while ($item = $resultGuru->fetch_object()) : ?>
+                <div class="col-md-4 d-flex mb-4">
+                    <article class="guru-card d-flex flex-column">
+                        <!-- TAG GURU -->
+                        <span class="tag tag-guru">
+                            <i class='bx bxs-user'></i> Guru
+                        </span>
 
-                        <div class="modern-card">
+                        <!-- IMAGE -->
+                        <div class="guru-img-box">
+                            <img src="../storages/guru/<?= htmlspecialchars($item->image) ?>"
+                                alt="<?= htmlspecialchars($item->nama) ?>">
 
-                            <div class="image-wrapper">
-                                <img src="../storages/guru/<?= htmlspecialchars($item->image) ?>"
-                                    alt="<?= htmlspecialchars($item->nama) ?>">
-                                <div class="card-label">Guru</div>
-                            </div>
-
-                            <div class="card-body">
-                                <div class="card-name"><?= htmlspecialchars($item->nama) ?></div>
-                                <div class="card-mapel"><?= htmlspecialchars($item->mapel) ?></div>
-                                <div class="card-gender"><?= htmlspecialchars($item->jenis_kelamin) ?></div>
-                            </div>
+                            <!-- SEARCH -->
+                            <button class="guru-search-btn"
+                                onclick="openGuruPreview(
+                                    '../storages/guru/<?= htmlspecialchars($item->image) ?>',
+                                    '<?= htmlspecialchars($item->nama) ?>',
+                                    '<?= htmlspecialchars($item->mapel) ?>',
+                                     '<?= htmlspecialchars($item->jenis_kelamin) ?>',
+                                    '<?= $item->id ?>'
+                                )">
+                                <i class='bx bx-search'></i>
+                            </button>
                         </div>
-                    </a>
+
+                        <!-- CONTENT -->
+                        <div class="guru-content d-flex flex-column flex-fill">
+                            <h5><?= htmlspecialchars($item->nama) ?></h5>
+                            <p class="guru-mapel"><?= htmlspecialchars($item->mapel) ?></p>
+                            <p class="guru-mapel"><?= htmlspecialchars($item->jenis_kelamin) ?></p>
+
+                            <a href="./pages/detail/guru.php?id=<?= $item->id ?>" class="guru-read">
+                                Baca selengkapnya →
+                            </a>
+                        </div>
+
+                    </article>
                 </div>
             <?php endwhile; ?>
         </div>
     </div>
 </section>
+
+<!-- =============================
+ PREVIEW MODAL
+============================= -->
+<div id="guruPreview" class="guru-preview">
+    <span class="guru-close" onclick="closeGuruPreview()">
+        <i class='bx bx-x'></i>
+    </span>
+
+    <div class="guru-preview-content">
+        <img id="guruPreviewImg">
+        <h3 id="guruPreviewNama"></h3>
+        <p id="guruPreviewMapel"></p>
+
+        <!-- <a id="guruPreviewLink" class="guru-preview-link">
+            Baca selengkapnya →
+        </a> -->
+    </div>
+</div>
+
+<!-- =============================
+ CSS
+============================= -->
+<style>
+    #guru {
+        background: #e6ebf2;
+        padding: 70px 0;
+    }
+
+    /* CARD */
+    .guru-card {
+        background: #fff;
+        border-radius: 5px;
+        overflow: hidden;
+        position: relative;
+        transition: .3s;
+        width: 100%;
+    }
+
+    /* TAG */
+    .guru-tag {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: #3498db;
+        color: #fff;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 13px;
+        z-index: 2;
+    }
+
+    /* IMAGE */
+    .guru-img-box {
+        position: relative;
+    }
+
+    .guru-img-box img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+
+    /* SEARCH */
+    .guru-search-btn {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        background: #000;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    /* CONTENT */
+    .guru-content {
+        padding: 15px;
+    }
+
+    .guru-content h5 {
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .guru-mapel {
+        font-size: 14px;
+        color: #555;
+    }
+
+    /* READ MORE */
+    .guru-read {
+        margin-top: auto;
+        font-weight: 600;
+        text-decoration: none;
+        color: #000;
+    }
+
+    .guru-read:hover {
+        text-decoration: underline;
+    }
+
+    /* PREVIEW */
+    .guru-preview {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, .9);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+    }
+
+    .guru-preview.active {
+        display: flex;
+    }
+
+    .guru-preview-content {
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+    }
+
+    .guru-preview-content img {
+        width: 100%;
+        max-height: 300px;
+        object-fit: cover;
+        margin-bottom: 15px;
+    }
+
+    .guru-preview-link {
+        display: inline-block;
+        margin-top: 12px;
+        padding: 8px 20px;
+        background: #000;
+        color: #fff;
+        border-radius: 10px;
+        text-decoration: none;
+    }
+
+    /* CLOSE */
+    .guru-close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 40px;
+        color: #fff;
+        cursor: pointer;
+    }
+</style>
+
+<!-- =============================
+ JAVASCRIPT
+============================= -->
+<script>
+    function openGuruPreview(img, nama, mapel, id) {
+        document.getElementById('guruPreviewImg').src = img;
+
+        document.getElementById('guruPreview').classList.add('active');
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeGuruPreview() {
+        document.getElementById('guruPreview').classList.remove('active');
+        document.body.style.overflow = "auto";
+    }
+</script>
+
+<!-- BOXICONS -->
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">

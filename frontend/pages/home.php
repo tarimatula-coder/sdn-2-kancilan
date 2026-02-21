@@ -3,7 +3,7 @@ $qabout = "SELECT * FROM about";
 $resultabout = mysqli_query($connect, $qabout) or die(mysqli_error($connect));
 ?>
 
-<section class="hero-slider">
+<section class="hero-slider" id="hero-slider">
 
     <?php $i = 0;
     while ($item = $resultabout->fetch_object()) : ?>

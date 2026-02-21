@@ -16,12 +16,12 @@ $about = mysqli_fetch_object(mysqli_query($connect, $qabout));
                     <div class="col-lg-7">
                         <a href="#header" class="scrollto footer-logo"><!-- Gambar -->
                             <ul class="footer-menu">
-                                <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                                <li><a class="nav-link scrollto active" href="#hero-slider">Home</a></li>
                                 <li><a class="nav-link scrollto" href="#headmaster">Kepala sekolah</a></li>
                                 <li><a class="nav-link scrollto" href="#ekstrakulikuler">Ekstrakulikuler</a></li>
                                 <li><a class="nav-link scrollto " href="#pencapaian">Pencapaian</a></li>
                                 <li><a class="nav-link scrollto" href="#blog">Blog</a></li>
-                                <li><a class="nav-link scrollto" href="#visi_misi">Visi Misi</a></li>
+                                <li><a class="nav-link scrollto" href="#visi-misi">Visi Misi</a></li>
                                 <li><a class="nav-link scrollto" href="#guru">Guru</a></li>
                                 <li><a class="nav-link scrollto" href="#contact">contact</a></li>
                             </ul>
@@ -33,7 +33,7 @@ $about = mysqli_fetch_object(mysqli_query($connect, $qabout));
 
     <div class="container footer-bottom clearfix">
         <div class="copyright">
-            &copy; Aslamiyah <strong><span>web develompent</span></strong>. Desainer UI/UX
+            &copy; Aslamiyah <strong><span>web developer</span></strong>. Desainer UI/UX
         </div>
     </div>
 <?php endwhile; ?>

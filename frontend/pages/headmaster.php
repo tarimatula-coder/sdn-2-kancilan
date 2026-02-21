@@ -8,9 +8,11 @@ $resultheadmaster = mysqli_query($connect, $qheadmaster) or die(mysqli_error($co
         <?php while ($item = $resultheadmaster->fetch_object()) : ?>
             <div class="row align-items-center">
                 <!-- Bagian Kiri (Teks) -->
-                <div class="col-lg-6">
+                <div class="col-lg-6 mb-4 mb-lg-0">
                     <h4>Sambutan Kepala Sekolah</h4>
-                    <p><?= $item->keterangan ?></p>
+                    <div class="headmaster-text">
+                        <?= $item->keterangan ?>
+                    </div>
                 </div>
 
                 <!-- Bagian Kanan (Foto + Card Nama) -->
@@ -33,8 +35,8 @@ $resultheadmaster = mysqli_query($connect, $qheadmaster) or die(mysqli_error($co
 
 <style>
     /* =============================
-   WRAPPER
-============================= */
+       WRAPPER FOTO
+    ============================== */
     .headmaster-photo-wrapper {
         position: relative;
         display: inline-block;
@@ -42,9 +44,7 @@ $resultheadmaster = mysqli_query($connect, $qheadmaster) or die(mysqli_error($co
         padding: 22px;
     }
 
-    /* =============================
-   LAYER BELAKANG
-============================= */
+    /* LAYER BELAKANG */
     .headmaster-photo-wrapper::before {
         content: "";
         position: absolute;
@@ -69,9 +69,7 @@ $resultheadmaster = mysqli_query($connect, $qheadmaster) or die(mysqli_error($co
         z-index: 1;
     }
 
-    /* =============================
-   FRAME UTAMA
-============================= */
+    /* FRAME UTAMA FOTO */
     .photo-circle {
         position: relative;
         width: 300px;
@@ -81,10 +79,8 @@ $resultheadmaster = mysqli_query($connect, $qheadmaster) or die(mysqli_error($co
         padding: 10px;
         margin: 0 auto 20px;
         z-index: 2;
-        /* box-shadow: 0 28px 55px rgba(0, 0, 0, 0.35); */
     }
 
-    /* FOTO */
     .headmaster-photo {
         width: 100%;
         height: 100%;
@@ -93,9 +89,7 @@ $resultheadmaster = mysqli_query($connect, $qheadmaster) or die(mysqli_error($co
         display: block;
     }
 
-    /* =============================
-   CARD NAMA
-============================= */
+    /* CARD NAMA */
     .headmaster-card {
         position: relative;
         z-index: 3;
@@ -103,7 +97,6 @@ $resultheadmaster = mysqli_query($connect, $qheadmaster) or die(mysqli_error($co
         border-radius: 16px;
         padding: 14px 32px;
         display: inline-block;
-        /* box-shadow: 0 14px 26px rgba(0, 0, 0, 0.25); */
         border-bottom: 5px solid #e53935;
     }
 
@@ -116,8 +109,26 @@ $resultheadmaster = mysqli_query($connect, $qheadmaster) or die(mysqli_error($co
     }
 
     /* =============================
-   RESPONSIVE TABLET
-============================= */
+       KETERANGAN / TEXT CARD
+    ============================== */
+    .headmaster-text {
+        position: relative;
+        background: #fff;
+        /* warna putih agar teks jelas */
+        border-radius: 16px;
+        padding: 20px 25px;
+        border: 2px solid #000;
+        /* border hitam */
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        /* shadow lembut */
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #0d1b2a;
+    }
+
+    /* =============================
+       RESPONSIVE TABLET
+    ============================== */
     @media (max-width: 992px) {
 
         .photo-circle,
@@ -133,8 +144,8 @@ $resultheadmaster = mysqli_query($connect, $qheadmaster) or die(mysqli_error($co
     }
 
     /* =============================
-   RESPONSIVE MOBILE
-============================= */
+       RESPONSIVE MOBILE
+    ============================== */
     @media (max-width: 576px) {
 
         .photo-circle,
@@ -150,6 +161,11 @@ $resultheadmaster = mysqli_query($connect, $qheadmaster) or die(mysqli_error($co
         }
 
         .headmaster-card h5 {
+            font-size: 0.95rem;
+        }
+
+        .headmaster-text {
+            padding: 15px 18px;
             font-size: 0.95rem;
         }
     }

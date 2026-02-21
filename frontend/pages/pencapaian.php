@@ -6,63 +6,65 @@ $resultpencapaian = mysqli_query($connect, $qpencapaian) or die(mysqli_error($co
 <section id="pencapaian">
     <div class="container">
 
-        <!-- Judul Section -->
+        <!-- JUDUL -->
         <div class="row">
             <div class="col-12">
                 <div class="intro text-center mb-5">
                     <h1>Prestasi</h1>
-                    <p class="mx-auto" style="max-width: 600px;">
+                    <p class="mx-auto" style="max-width:600px;">
                         Berikut ini adalah prestasi siswa yang telah diraih oleh sekolah
                     </p>
                 </div>
             </div>
         </div>
 
-        <!-- Daftar Pencapaian -->
-        <div class="row d-flex align-items-stretch">
+        <!-- CARD -->
+        <div class="row">
             <?php while ($item = $resultpencapaian->fetch_object()) : ?>
-                <div class="col-md-4 d-flex mb-4">
-                    <a href="./pages/detail/pencapaian.php?id=<?= $item->id ?>" class="pencapaian-post-link w-100">
-                        <article class="pencapaian-post w-100 d-flex flex-column">
-
-                            <!-- Tag -->
-                            <span class="tag">
+                <div class="col-md-4 mb-4">
+                    <div class="pencapaian-post">
+                        <!-- IMAGE -->
+                        <div class="img-box">
+                            <img src="../storages/pencapaian/<?= htmlspecialchars($item->image) ?>" alt="">
+                            
+                            <span class="tag tag-prestasi">
                                 <i class='bx bxs-award'></i> Prestasi
                             </span>
 
-                            <!-- Gambar -->
-                            <img src="../storages/pencapaian/<?= htmlspecialchars($item->image) ?>"
-                                alt="<?= htmlspecialchars($item->tingkat) ?>">
 
-                            <!-- Konten -->
-                            <div class="content d-flex flex-column flex-fill">
+                            <!-- SEARCH -->
+                            <button class="search-btn"
+                                onclick="openPreview(
+                                    '../storages/pencapaian/<?= htmlspecialchars($item->image) ?>',
+                                    '<?= htmlspecialchars($item->nama) ?>',
+                                    '<?= htmlspecialchars($item->tingkat) ?>',
+                                    '<?= htmlspecialchars($item->peraih) ?>',
+                                    '<?= htmlspecialchars($item->kategori) ?>',
+                                    '<?= htmlspecialchars($item->keterangan) ?>',
+                                    '<?= $item->id ?>'
+                                )">
+                                <i class='bx bx-search'></i>
+                            </button>
+                        </div>
 
-                                <h4><?= htmlspecialchars(substr($item->nama, 0, 80)) ?></h4>
+                        <!-- CONTENT -->
+                        <div class="content">
+                            <h4><?= htmlspecialchars(substr($item->nama, 0, 80)) ?></h4>
 
-                                <!-- Meta -->
-                                <div class="meta">
-                                    <span>
-                                        <i class='bx bx-layer'></i>
-                                        Tingkat: <?= htmlspecialchars($item->tingkat) ?>
-                                    </span>
-                                    <span>
-                                        <i class='bx bx-user'></i>
-                                        Juara: <?= htmlspecialchars($item->peraih) ?>
-                                    </span>
-                                    <span>
-                                        <i class='bx bx-purchase-tag'></i>
-                                        Kategori: <?= htmlspecialchars($item->kategori) ?>
-                                    </span>
-                                </div>
-
-                                <!-- Deskripsi -->
-                                <p><?= htmlspecialchars(substr($item->keterangan, 0, 100)) ?>...</p>
-
-                                <div class="mt-auto"></div>
+                            <div class="meta">
+                                <span><i class='bx bx-layer'></i> Tingkat: <?= htmlspecialchars($item->tingkat) ?></span>
+                                <span><i class='bx bx-user'></i> Juara: <?= htmlspecialchars($item->peraih) ?></span>
+                                <span><i class='bx bx-purchase-tag'></i> Kategori: <?= htmlspecialchars($item->kategori) ?></span>
                             </div>
 
-                        </article>
-                    </a>
+                            <p><?= htmlspecialchars(substr($item->keterangan, 0, 100)) ?>...</p>
+
+                            <a href="./pages/detail/pencapaian.php?id=<?= $item->id ?>" class="read-more">
+                                Baca selengkapnya →
+                            </a>
+                        </div>
+
+                    </div>
                 </div>
             <?php endwhile; ?>
         </div>
@@ -70,107 +72,203 @@ $resultpencapaian = mysqli_query($connect, $qpencapaian) or die(mysqli_error($co
     </div>
 </section>
 
-<!-- =========================
-     CSS PENCAPAIAN
-========================= -->
+<!-- ================= PREVIEW ================= -->
+<div id="previewBox" class="preview-box">
+    <span class="close-btn" onclick="closePreview()">
+        <i class='bx bx-x'></i>
+    </span>
+
+    <div class="preview-content">
+        <img id="previewImg">
+        <h3 id="previewTitle"></h3>
+
+        <div class="preview-meta">
+            <span id="previewTingkat"></span>
+            <span id="previewPeraih"></span>
+            <span id="previewKategori"></span>
+        </div>
+
+        <p id="previewDesc"></p>
+
+        <a id="previewLink" class="preview-link">
+            Baca selengkapnya →
+        </a>
+    </div>
+</div>
+
+<!-- ================= CSS ================= -->
 <style>
-    /* Link */
-    .pencapaian-post-link {
-        text-decoration: none;
-        color: inherit;
-        display: flex;
+    #pencapaian {
+        background: #f5f5f5;
+        padding: 70px 0;
     }
 
-    /* Card */
+    /* CARD */
     .pencapaian-post {
-        background: #ffffff;
-        border-radius: 16px;
+        background: #fff;
+        border-radius: 5px;
         overflow: hidden;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* IMAGE */
+    .img-box {
         position: relative;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .pencapaian-post:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
-    }
-
-    /* Gambar */
-    .pencapaian-post img {
-        width: 100%;
         height: 220px;
+    }
+
+    .img-box img {
+        width: 100%;
+        height: 100%;
         object-fit: cover;
     }
 
-    /* Tag */
+    /* SEARCH BUTTON */
+    .search-btn {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        width: 42px;
+        height: 42px;
+        background: #000;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    /* TAG */
     .tag {
         position: absolute;
         top: 14px;
         left: 14px;
-        background: #1b5e20;
+        background: #000;
         color: #fff;
         padding: 6px 14px;
-        font-size: 13px;
-        font-weight: 600;
         border-radius: 20px;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
+        font-size: 13px;
         z-index: 2;
     }
 
-    /* Konten */
-    .pencapaian-post .content {
+    /* CONTENT */
+    .content {
         padding: 18px;
         display: flex;
         flex-direction: column;
         flex: 1;
     }
 
-    /* Meta */
-    .pencapaian-post .meta {
+    .content h4 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    /* META KE BAWAH */
+    .meta {
         display: flex;
         flex-direction: column;
         gap: 6px;
-        font-size: 14.5px;
-        color: #444;
-        margin-bottom: 12px;
-    }
-
-    .pencapaian-post .meta span {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .pencapaian-post .meta i {
-        font-size: 17px;
-        color: #2e7d32;
-    }
-
-    /* Judul */
-    .pencapaian-post h4 {
-        font-size: 16px;
-        font-weight: 700;
-        color: #1f2933;
-        margin-bottom: 6px;
-        line-height: 1.4;
-    }
-
-    /* Deskripsi */
-    .pencapaian-post p {
         font-size: 14px;
-        color: #555;
-        line-height: 1.6;
+        margin-bottom: 10px;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-        .pencapaian-post img {
-            height: 190px;
-        }
+    .meta i {
+        margin-right: 6px;
+    }
+
+    /* READ MORE */
+    .read-more {
+        margin-top: auto;
+        font-weight: 600;
+        color: #000;
+        text-decoration: none;
+    }
+
+    .read-more:hover {
+        text-decoration: underline;
+    }
+
+    /* PREVIEW */
+    .preview-box {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, .9);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        padding: 20px;
+    }
+
+    .preview-box.active {
+        display: flex;
+    }
+
+    .preview-content {
+        max-width: 900px;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+    }
+
+    .preview-content img {
+        width: 100%;
+        max-height: 65vh;
+        object-fit: cover;
+        border-radius: 14px;
+        border: 2px solid #000;
+        margin-bottom: 15px;
+    }
+
+    .preview-meta span {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 14px;
+    }
+
+    .preview-link {
+        display: inline-block;
+        margin-top: 12px;
+        padding: 8px 20px;
+        background: #000;
+        color: #fff;
+        border-radius: 10px;
+        text-decoration: none;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 40px;
+        color: #fff;
+        cursor: pointer;
     }
 </style>
 
-<!-- Boxicons (WAJIB agar icon muncul) -->
+<!-- ================= JS ================= -->
+<script>
+    function openPreview(img, title, tingkat, peraih, kategori, desc, id) {
+        document.getElementById('previewImg').src = img;
+        document.getElementById('previewTitle').innerText = title;
+        document.getElementById('previewTingkat').innerText = "🏆 Tingkat: " + tingkat;
+        document.getElementById('previewPeraih').innerText = "👤 Juara: " + peraih;
+        document.getElementById('previewKategori').innerText = "🏷️ Kategori: " + kategori;
+        document.getElementById('previewDesc').innerText = desc;
+        document.getElementById('previewLink').href = "./pages/detail/pencapaian.php?id=" + id;
+
+        document.getElementById('previewBox').classList.add('active');
+        document.body.style.overflow = "hidden";
+    }
+
+    function closePreview() {
+        document.getElementById('previewBox').classList.remove('active');
+        document.body.style.overflow = "auto";
+    }
+</script>
+
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">

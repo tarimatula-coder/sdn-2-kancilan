@@ -1,39 +1,46 @@
 <?php
-$qgalleri = "SELECT * FROM galleries LIMIT 3";
+$qgalleri = "SELECT * FROM galleries LIMIT 6";
 $resultgalleri = mysqli_query($connect, $qgalleri) or die(mysqli_error($connect));
 ?>
 
 <section id="galeri" class="galeri">
     <div class="container">
 
-        <!-- Judul -->
-        <div class="row">
-            <div class="col-12">
-                <div class="intro text-center">
-                    <h1>Galeri Kegiatan</h1>
-                    <p class="mx-auto" style="max-width:600px;">
-                        Dokumentasi kegiatan dan aktivitas sekolah
-                    </p>
-                </div>
+        <!-- JUDUL -->
+        <div class="row mb-4">
+            <div class="col-12 text-center">
+                <h2 class="fw-bold">Galeri Kegiatan</h2>
+                <p class="text-muted mx-auto" style="max-width:600px;">
+                    Dokumentasi kegiatan dan prestasi sekolah
+                </p>
             </div>
         </div>
 
-        <!-- Card Galeri -->
-        <div class="row d-flex align-items-stretch text-center">
+        <!-- GALERI -->
+        <div class="row g-3">
             <?php while ($item = $resultgalleri->fetch_object()) : ?>
-                <div class="col-md-4 d-flex">
-                    <div class="galeri-post flex-fill">
+                <div class="col-lg-4 col-md-6">
 
-                        <!-- Tag -->
-                        <span class="tag galeri-tag">
-                            <i class='bx bx-image'></i> Galeri
-                        </span>
+                    <div class="galeri-item">
 
-                        <!-- Gambar -->
-                        <img src="../storages/galleri/<?= htmlspecialchars($item->image) ?>"
-                            alt="Galeri">
+                        <!-- IMAGE -->
+                        <div class="galeri-img">
+                            <img src="../storages/galleri/<?= htmlspecialchars($item->image) ?>" alt="Galeri">
+
+                            <!-- SEARCH ICON -->
+                            <button class="galeri-search"
+                                onclick="openPreview('../storages/galleri/<?= htmlspecialchars($item->image) ?>')">
+                                <i class="bx bx-search"></i>
+                            </button>
+                        </div>
+
+                        <!-- KETERANGAN -->
+                        <div class="galeri-caption">
+                            <?= htmlspecialchars($item->keterangan) ?>
+                        </div>
 
                     </div>
+
                 </div>
             <?php endwhile; ?>
         </div>
@@ -41,62 +48,100 @@ $resultgalleri = mysqli_query($connect, $qgalleri) or die(mysqli_error($connect)
     </div>
 </section>
 
-<!-- CSS -->
+<!-- PREVIEW -->
+<div id="galeriPreview" class="galeri-preview">
+    <span class="galeri-close" onclick="closePreview()">
+        <i class="bx bx-x"></i>
+    </span>
+    <img id="previewImage" src="">
+</div>
+
+<!-- ================= CSS ================= -->
 <style>
-    /* Card */
-    .galeri-post {
-        background: #fff;
-        border-radius: 15px;
-        overflow: hidden;
+    .galeri {
+        padding: 60px 0;
+    }
+
+    /* BORDER UTAMA */
+    .galeri-item {
+        border: 2px solid #000;
+        height: 100%;
+    }
+
+    /* IMAGE FULL */
+    .galeri-img {
         position: relative;
-        flex: 1;
-        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-    }
-
-    /* Gambar */
-    .galeri-post img {
         width: 100%;
-        height: 320px;
+        height: 260px;
+    }
+
+    .galeri-img img {
+        width: 100%;
+        height: 100%;
         object-fit: cover;
-        border-bottom: 4px solid #eee;
+        display: block;
     }
 
-    /* Tag */
-    .galeri-tag {
-        background: #3498db;
-    }
-
-    .tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        color: #fff;
-        padding: 6px 12px;
-        border-radius: 20px;
-        font-size: 14px;
-        font-weight: 500;
+    /* SEARCH ICON */
+    .galeri-search {
         position: absolute;
-        top: 15px;
-        left: 15px;
-        z-index: 2;
+        bottom: 10px;
+        right: 10px;
+        width: 38px;
+        height: 38px;
+        background: #000;
+        color: #fff;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
     }
 
-    /* Content */
-    .galeri-post .content {
-        padding: 15px;
+    /* KETERANGAN */
+    .galeri-caption {
+        border-top: 2px solid #000;
+        padding: 10px;
+        font-size: 14px;
         text-align: center;
-        display: flex;
-        flex-direction: column;
-        flex: 1;
+        background: #fff;
     }
 
-    .galeri-post .content h5 {
-        font-size: 15px;
-        font-weight: 600;
-        color: #1f2937;
-        margin: 0;
+    /* PREVIEW */
+    .galeri-preview {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.85);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+    }
+
+    .galeri-preview img {
+        max-width: 90%;
+        max-height: 85%;
+    }
+
+    /* CLOSE ICON */
+    .galeri-close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 40px;
+        color: #fff;
+        cursor: pointer;
     }
 </style>
 
-<!-- Boxicons -->
+<!-- ================= JS ================= -->
+<script>
+    function openPreview(img) {
+        document.getElementById('previewImage').src = img;
+        document.getElementById('galeriPreview').style.display = 'flex';
+    }
+
+    function closePreview() {
+        document.getElementById('galeriPreview').style.display = 'none';
+    }
+</script>
+<!-- BOXICONS -->
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">

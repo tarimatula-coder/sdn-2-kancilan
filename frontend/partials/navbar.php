@@ -7,32 +7,32 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                <li><a class="nav-link scrollto active" href="#hero-slider">Home</a></li>
                 <li><a class="nav-link scrollto" href="#headmaster">Kepala sekolah</a></li>
                 <li><a class="nav-link scrollto" href="#ekstrakulikuler">Ekstrakulikuler</a></li>
                 <li><a class="nav-link scrollto " href="#pencapaian">Pencapaian</a></li>
                 <li><a class="nav-link scrollto" href="#blog">Blog</a></li>
-                <li><a class="nav-link scrollto" href="#visi_misi">Visi Misi</a></li>
+                <li><a class="nav-link scrollto" href="#visi-misi">Visi Misi</a></li>
                 <li><a class="nav-link scrollto" href="#guru">Guru</a></li>
                 <li><a class="nav-link scrollto" href="#contact">contact</a></li>
-            <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-                <ul>
-                    <li><a href="#">Drop Down 1</a></li>
-                    <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                        <ul>
-                            <li><a href="#">Deep Drop Down 1</a></li>
-                            <li><a href="#">Deep Drop Down 2</a></li>
-                            <li><a href="#">Deep Drop Down 3</a></li>
-                            <li><a href="#">Deep Drop Down 4</a></li>
-                            <li><a href="#">Deep Drop Down 5</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Drop Down 2</a></li>
-                    <li><a href="#">Drop Down 3</a></li>
-                    <li><a href="#">Drop Down 4</a></li>
-                </ul>
-            </li>
-            <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="#">Drop Down 1</a></li>
+                        <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                            <ul>
+                                <li><a href="#">Deep Drop Down 1</a></li>
+                                <li><a href="#">Deep Drop Down 2</a></li>
+                                <li><a href="#">Deep Drop Down 3</a></li>
+                                <li><a href="#">Deep Drop Down 4</a></li>
+                                <li><a href="#">Deep Drop Down 5</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Drop Down 2</a></li>
+                        <li><a href="#">Drop Down 3</a></li>
+                        <li><a href="#">Drop Down 4</a></li>
+                    </ul>
+                </li>
+                <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
