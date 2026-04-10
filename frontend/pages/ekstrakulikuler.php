@@ -5,8 +5,8 @@ $resultekstrakulikuler = mysqli_query($connect, $qekstrakulikuler);
 ?>
 
 <section class="ekstrakulikuler" id="ekstrakulikuler" style="
-    padding:100px 0 60px; /* 🔥 sama seperti artikel */
-    background:#f1f5f9;   /* 🔥 bukan putih */
+    padding:100px 0 60px;
+    background:#f1f5f9;
 ">
 
     <div class="container">
@@ -58,6 +58,8 @@ $resultekstrakulikuler = mysqli_query($connect, $qekstrakulikuler);
 
 
 <style>
+    /* ================= CSS ASLI KAMU ================= */
+
     .title {
         font-size: 34px;
         font-weight: 700;
@@ -70,7 +72,6 @@ $resultekstrakulikuler = mysqli_query($connect, $qekstrakulikuler);
         margin-top: 5px;
     }
 
-    /* CARD */
     .ekskul-card {
         background: #ffffff;
         border-radius: 22px;
@@ -88,7 +89,6 @@ $resultekstrakulikuler = mysqli_query($connect, $qekstrakulikuler);
         box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
     }
 
-    /* IMAGE */
     .img-box {
         padding: 20px 20px 10px 20px;
     }
@@ -100,7 +100,6 @@ $resultekstrakulikuler = mysqli_query($connect, $qekstrakulikuler);
         border-radius: 14px;
     }
 
-    /* BODY */
     .card-body {
         padding: 20px 35px 35px 35px;
         display: flex;
@@ -126,7 +125,6 @@ $resultekstrakulikuler = mysqli_query($connect, $qekstrakulikuler);
         text-align: left;
     }
 
-    /* BUTTON */
     .btn-wrapper {
         margin-top: auto;
         padding: 0 20px 10px 20px;
@@ -149,5 +147,85 @@ $resultekstrakulikuler = mysqli_query($connect, $qekstrakulikuler);
     .btn-detail:hover {
         background: #1FA67A;
         transform: scale(1.05);
+    }
+
+    /* ================= RESPONSIVE UPDATE ================= */
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+        .ekstrakulikuler .row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .img-box img {
+            height: 180px;
+        }
+    }
+
+    /* HP → 3 KOLOM */
+    @media (max-width: 768px) {
+
+        .ekstrakulikuler {
+            padding: 80px 10px 40px !important;
+        }
+
+        .title {
+            font-size: 24px;
+        }
+
+        .subtitle {
+            font-size: 13px;
+        }
+
+        .ekstrakulikuler .row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .img-box img {
+            height: 110px;
+        }
+
+        .card-body {
+            padding: 10px;
+        }
+
+        .card-body h3 {
+            font-size: 14px;
+        }
+
+        .card-body p {
+            display: none;
+            /* biar muat 3 kolom */
+        }
+
+        .btn-detail {
+            padding: 8px;
+            font-size: 12px;
+        }
+    }
+
+    /* HP kecil tetap 3 kolom */
+    @media (max-width: 480px) {
+
+        .ekstrakulikuler .row {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+        }
+
+        .img-box img {
+            height: 90px;
+        }
+
+        .card-body h3 {
+            font-size: 12px;
+        }
+
+        .btn-detail {
+            font-size: 11px;
+        }
     }
 </style>

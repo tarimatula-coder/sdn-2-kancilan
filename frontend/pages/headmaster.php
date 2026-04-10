@@ -20,15 +20,12 @@ $resultheadmaster = mysqli_query($connect, $qheadmaster) or die(mysqli_error($co
                 <div class="col-lg-6 text-center">
                     <div class="headmaster-card">
 
-                        <!-- FRAME -->
                         <div class="frame-soft"></div>
 
-                        <!-- FOTO -->
                         <div class="photo-box">
                             <img src="../storages/headmaster/<?= $item->image ?>" alt="<?= $item->name ?>">
                         </div>
 
-                        <!-- NAMA BADGE -->
                         <div class="name-badge">
                             <?= $item->name ?>
                         </div>
@@ -42,7 +39,8 @@ $resultheadmaster = mysqli_query($connect, $qheadmaster) or die(mysqli_error($co
 </section>
 
 <style>
-    /* SECTION */
+    /* ================= CSS ASLI ================= */
+
     .headmaster-section {
         background: #f8fafc;
         padding: 80px 0;
@@ -52,27 +50,19 @@ $resultheadmaster = mysqli_query($connect, $qheadmaster) or die(mysqli_error($co
         font-weight: 700;
         margin-bottom: 18px;
         color: #1FA67A;
-        /* hijau tua soft */
     }
 
-    /* INNER CARD - KETERANGAN */
     .headmaster-text {
         background: rgba(255, 255, 255, 0.95);
-        /* hitam semi transparan */
         padding: 26px;
         border-radius: 20px;
         border: 1px solid rgba(0, 0, 0, 0.3);
-        /* border hitam transparan */
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        /* shadow lembut */
         line-height: 1.8;
-        color: #000000;
-        /* teks hitam */
+        color: #000;
         font-size: 15px;
-        transition: 0.3s ease;
     }
 
-    /* CARD FOTO */
     .headmaster-card {
         position: relative;
         width: 300px;
@@ -92,13 +82,10 @@ $resultheadmaster = mysqli_query($connect, $qheadmaster) or die(mysqli_error($co
     .photo-box {
         position: relative;
         height: 390px;
-        background: rgba(255, 255, 255, 0.1);
-        /* tembus pandang */
         border-radius: 30px;
         overflow: hidden;
         z-index: 2;
         box-shadow: 0 18px 40px rgba(27, 94, 32, 0.12);
-        transition: .35s ease;
     }
 
     .photo-box img {
@@ -107,41 +94,95 @@ $resultheadmaster = mysqli_query($connect, $qheadmaster) or die(mysqli_error($co
         object-fit: cover;
     }
 
-    /* NAME BADGE / BUTTON - hijau tua soft */
     .name-badge {
         position: absolute;
         bottom: -18px;
         left: 50%;
         transform: translateX(-50%);
         background: #1FA67A;
-        /* hijau tua soft */
         padding: 12px 30px;
         width: 200px;
         border-radius: 999px;
         font-weight: 600;
         font-size: 14px;
-        color: #ffffff;
-        box-shadow: 0 8px 20px rgba(20, 90, 22, 0.25);
-        /* shadow lembut hijau */
-        z-index: 3;
-        border: 2px solid #1FA67A;
-        /* aksen hijau tua */
-        transition: 0.3s ease;
+        color: #fff;
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
+    /* ================= RESPONSIVE ================= */
+
+    /* TABLET */
+    @media (max-width: 1024px) {
         .headmaster-card {
-            width: 230px;
+            width: 260px;
         }
 
         .photo-box {
-            height: 300px;
+            height: 340px;
+        }
+    }
+
+    /* HP */
+    @media (max-width: 768px) {
+
+        .headmaster-section {
+            padding: 60px 15px;
         }
 
-        .headmaster-title,
-        .headmaster-text {
+        .row {
+            flex-direction: column-reverse;
+            align-items: center;
             text-align: center;
+        }
+
+        .headmaster-title {
+            font-size: 20px;
+        }
+
+        .headmaster-text {
+            font-size: 14px;
+            padding: 18px;
+            line-height: 1.6;
+        }
+
+        .headmaster-card {
+            width: 200px;
+            margin-bottom: 25px;
+        }
+
+        .photo-box {
+            height: 240px;
+        }
+
+        .frame-soft {
+            transform: translate(10px, -10px);
+        }
+
+        .name-badge {
+            width: 160px;
+            font-size: 12px;
+            padding: 8px;
+            bottom: -12px;
+        }
+    }
+
+    /* HP KECIL */
+    @media (max-width: 480px) {
+
+        .headmaster-card {
+            width: 180px;
+        }
+
+        .photo-box {
+            height: 220px;
+        }
+
+        .headmaster-text {
+            font-size: 13px;
+        }
+
+        .name-badge {
+            width: 140px;
+            font-size: 11px;
         }
     }
 </style>

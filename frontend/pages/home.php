@@ -44,8 +44,6 @@ $resultabout = mysqli_query($connect, $qabout) or die(mysqli_error($connect));
         width: 100%;
         height: 100vh;
         overflow: hidden;
-        margin: 0;
-        padding: 0;
     }
 
     /* WRAPPER */
@@ -128,21 +126,88 @@ $resultabout = mysqli_query($connect, $qabout) or die(mysqli_error($connect));
         text-decoration: none;
     }
 
-    /* RESPONSIVE */
-    @media (max-width:768px) {
+    /* ================= TAMBAHAN RESPONSIVE ================= */
+
+    /* Tablet */
+    @media (max-width:1024px) {
 
         .hero-content h1 {
-            font-size: 32px;
+            font-size: 40px;
         }
 
         .hero-desc {
-            font-size: 16px;
+            font-size: 18px;
         }
 
         .hero-address {
-            font-size: 15px;
+            font-size: 16px;
+        }
+    }
+
+    /* HP */
+    @media (max-width:768px) {
+
+        .hero-slider {
+            height: 90vh;
         }
 
+        .hero-content {
+            padding: 15px;
+        }
+
+        .hero-content h1 {
+            font-size: 26px;
+            line-height: 1.3;
+        }
+
+        .hero-desc {
+            font-size: 14px;
+        }
+
+        .hero-address {
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .hero-btn {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-get-started,
+        .btn-outline {
+            width: 100%;
+            max-width: 250px;
+            margin: auto;
+            padding: 10px;
+            font-size: 13px;
+        }
+    }
+
+    /* HP KECIL */
+    @media (max-width:480px) {
+
+        .hero-slider {
+            height: 85vh;
+        }
+
+        .hero-content h1 {
+            font-size: 22px;
+        }
+
+        .hero-desc {
+            font-size: 13px;
+        }
+
+        .hero-address {
+            font-size: 12px;
+        }
+
+        .btn-get-started,
+        .btn-outline {
+            font-size: 12px;
+            padding: 8px;
+        }
     }
 </style>
 

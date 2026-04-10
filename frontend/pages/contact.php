@@ -68,6 +68,8 @@ $resultContact = mysqli_query($connect, $qContact);
             </div>
 
             <style>
+                /* ================= CSS ASLI KAMU ================= */
+
                 .contact-item {
                     display: flex;
                     align-items: center;
@@ -121,12 +123,85 @@ $resultContact = mysqli_query($connect, $qContact);
                     width: 100%;
                     font-weight: 600;
                 }
+
+                /* ================= RESPONSIVE TAMBAHAN ================= */
+
+                /* Tablet */
+                @media (max-width: 1024px) {
+                    .contact-item {
+                        padding: 14px;
+                    }
+                }
+
+                /* HP */
+                @media (max-width: 768px) {
+
+                    .contact .section-title h2 {
+                        font-size: 26px;
+                    }
+
+                    .contact .section-title p {
+                        font-size: 14px;
+                    }
+
+                    /* 🔥 CONTACT JADI 2 KOLOM */
+                    .contact .row .row {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 10px;
+                    }
+
+                    .contact-item {
+                        flex-direction: column;
+                        text-align: center;
+                        gap: 10px;
+                        padding: 12px;
+                    }
+
+                    .contact-icon {
+                        width: 50px;
+                        height: 50px;
+                    }
+
+                    .contact-icon img {
+                        width: 25px;
+                    }
+
+                    .message-card {
+                        padding: 20px;
+                    }
+
+                    .form-control {
+                        font-size: 14px;
+                    }
+
+                    /* INPUT JADI FULL */
+                    .contact form .row {
+                        display: block;
+                    }
+                }
+
+                /* HP kecil */
+                @media (max-width: 480px) {
+
+                    .contact .row .row {
+                        grid-template-columns: 1fr;
+                    }
+
+                    .message-card {
+                        padding: 15px;
+                    }
+
+                    .btn-brand {
+                        font-size: 14px;
+                        padding: 10px;
+                    }
+                }
             </style>
 
             <div class="row">
 
                 <!-- CONTACT CARD -->
-
                 <div class="col-12 mb-4">
                     <div class="row">
 
@@ -135,8 +210,6 @@ $resultContact = mysqli_query($connect, $qContact);
                             $link = $item->link;
                             $ket  = strtolower($item->keterangan);
 
-                            /* ================= WHATSAPP ================= */
-
                             if (strpos($ket, 'whatsapp') !== false) {
 
                                 $nomor = "6289514401784";
@@ -144,7 +217,6 @@ $resultContact = mysqli_query($connect, $qContact);
 
                                 $link = "https://wa.me/" . $nomor . "?text=" . $pesan;
                             }
-
                         ?>
 
                             <div class="col-lg-3 col-md-6 mb-3">
@@ -166,8 +238,7 @@ $resultContact = mysqli_query($connect, $qContact);
                     </div>
                 </div>
 
-                <!-- FORM PESAN -->
-
+                <!-- FORM -->
                 <div class="col-12">
 
                     <div class="message-card">

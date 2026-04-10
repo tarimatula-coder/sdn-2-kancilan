@@ -52,13 +52,13 @@ $resultgalleri = mysqli_query($connect, $qgalleri) or die(mysqli_error($connect)
 </div>
 
 <style>
-    /* SECTION */
+    /* ================= CSS ASLI KAMU ================= */
+
     .galeri {
         padding: 80px 0;
         background: #ffffff;
     }
 
-    /* TITLE */
     .galeri-title {
         font-weight: 700;
         color: #1e293b;
@@ -70,7 +70,6 @@ $resultgalleri = mysqli_query($connect, $qgalleri) or die(mysqli_error($connect)
         margin: auto;
     }
 
-    /* CARD */
     .galeri-card {
         border-radius: 28px;
         overflow: hidden;
@@ -84,7 +83,6 @@ $resultgalleri = mysqli_query($connect, $qgalleri) or die(mysqli_error($connect)
         transform: translateY(-10px) scale(1.02);
     }
 
-    /* IMAGE */
     .galeri-img {
         position: relative;
         height: 250px;
@@ -102,7 +100,6 @@ $resultgalleri = mysqli_query($connect, $qgalleri) or die(mysqli_error($connect)
         transform: scale(1.1);
     }
 
-    /* OVERLAY HITAM TRANSPARAN */
     .galeri-overlay {
         position: absolute;
         inset: 0;
@@ -118,7 +115,6 @@ $resultgalleri = mysqli_query($connect, $qgalleri) or die(mysqli_error($connect)
         opacity: 1;
     }
 
-    /* TOMBOL HIJAU */
     .galeri-btn {
         width: 55px;
         height: 55px;
@@ -139,7 +135,6 @@ $resultgalleri = mysqli_query($connect, $qgalleri) or die(mysqli_error($connect)
         background: #178f69;
     }
 
-    /* PREVIEW */
     .galeri-preview {
         position: fixed;
         inset: 0;
@@ -165,10 +160,59 @@ $resultgalleri = mysqli_query($connect, $qgalleri) or die(mysqli_error($connect)
         cursor: pointer;
     }
 
-    /* RESPONSIVE */
+    /* ================= TAMBAHAN RESPONSIVE ================= */
+
+    /* Tablet */
+    @media(max-width:1024px) {
+        .galeri .row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+    }
+
+    /* HP → 3 KOLOM */
     @media(max-width:768px) {
+
+        .galeri {
+            padding: 70px 10px;
+        }
+
+        .galeri-title {
+            font-size: 24px;
+        }
+
+        .galeri-subtitle {
+            font-size: 13px;
+        }
+
+        .galeri .row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
         .galeri-img {
-            height: 200px;
+            height: 110px;
+        }
+
+        .galeri-btn {
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
+        }
+    }
+
+    /* HP kecil tetap 3 kolom */
+    @media(max-width:480px) {
+
+        .galeri .row {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+        }
+
+        .galeri-img {
+            height: 90px;
         }
     }
 </style>

@@ -4,6 +4,95 @@ $qartikel = "SELECT * FROM artikel";
 $resultartikel = mysqli_query($connect, $qartikel);
 ?>
 
+<style>
+    /* ================= CSS KAMU (TETAP) ================= */
+
+    /* ================= RESPONSIVE UPDATE ================= */
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+        .artikel .row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+    }
+
+    /* HP → 3 KOLOM */
+    @media (max-width: 768px) {
+
+        .artikel {
+            padding: 80px 10px 40px !important;
+        }
+
+        .artikel .title {
+            font-size: 24px;
+        }
+
+        .artikel .subtitle {
+            font-size: 13px;
+        }
+
+        .artikel .row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .artikel .img-box img {
+            height: 110px;
+            object-fit: cover;
+        }
+
+        .artikel .card-body {
+            padding: 10px;
+        }
+
+        .artikel .card-body h3 {
+            font-size: 13px;
+        }
+
+        .artikel .card-body p {
+            display: none;
+            /* biar muat 3 kolom */
+        }
+
+        .artikel .btn-detail {
+            font-size: 11px;
+            padding: 6px;
+        }
+
+        /* badge biar kecil */
+        .artikel .img-box div {
+            top: 10px !important;
+            left: 10px !important;
+            font-size: 9px !important;
+            padding: 4px 8px !important;
+        }
+    }
+
+    /* HP kecil tetap 3 kolom */
+    @media (max-width: 480px) {
+
+        .artikel .row {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+        }
+
+        .artikel .img-box img {
+            height: 90px;
+        }
+
+        .artikel .card-body h3 {
+            font-size: 11px;
+        }
+
+        .artikel .btn-detail {
+            font-size: 10px;
+        }
+    }
+</style>
+
 <section class="artikel" id="artikel" style="
     padding:100px 0 60px;
     background:#f1f5f9;
@@ -49,7 +138,7 @@ $resultartikel = mysqli_query($connect, $qartikel);
 
                             <img src="../storages/artikel/<?= htmlspecialchars($item->image) ?>">
 
-                            <!-- 🔥 BADGE TANGGAL -->
+                            <!-- BADGE -->
                             <div style="
                                 position:absolute;
                                 top:30px;

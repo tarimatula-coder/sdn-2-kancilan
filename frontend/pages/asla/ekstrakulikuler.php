@@ -226,6 +226,64 @@ if (!$data) {
                 grid-template-columns: 1fr;
             }
         }
+
+        /* ================= RESPONSIVE ================= */
+
+        /* TABLET */
+        @media (max-width: 1024px) {
+            .isi-artikel {
+                column-count: 2;
+                column-gap: 20px;
+            }
+        }
+
+        /* HP BESAR */
+        @media (max-width: 768px) {
+
+            /* SUPAYA 3 KOLOM DI HP */
+            .isi-artikel {
+                column-count: 3 !important;
+                column-gap: 10px;
+                font-size: 12px;
+                line-height: 1.4;
+            }
+
+            /* BIAR GAMBAR TIDAK BERANTAKAN */
+            .img-kanan,
+            .img-kiri {
+                float: none;
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            /* NAVBAR */
+            .menu {
+                display: none;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .judul {
+                font-size: 20px;
+            }
+        }
+
+        /* HP KECIL */
+        @media (max-width: 480px) {
+
+            .isi-artikel {
+                column-count: 3 !important;
+                /* tetap 3 kolom */
+                font-size: 11px;
+                column-gap: 8px;
+            }
+
+            .judul {
+                font-size: 18px;
+            }
+        }
     </style>
 </head>
 
