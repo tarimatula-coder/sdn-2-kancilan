@@ -37,7 +37,6 @@ $dataFasilitas = mysqli_fetch_assoc($qFasilitas);
     <title><?= htmlspecialchars($aboutHeader->name ?? 'Sekolah') ?></title>
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
     <style>
         body {
             margin: 0;
@@ -109,47 +108,15 @@ $dataFasilitas = mysqli_fetch_assoc($qFasilitas);
             line-height: 1.6;
         }
 
-        /* ================= RESPONSIVE ================= */
-
-        /* Tablet */
         @media(max-width:1200px) {
             .grid-keunggulan {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
             }
         }
 
-        /* HP (3 KOLOM SESUAI REQUEST KAMU 🔥) */
         @media(max-width:768px) {
             .grid-keunggulan {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 15px;
-            }
-
-            .item {
-                padding: 15px;
-            }
-
-            .icon {
-                width: 60px;
-                height: 60px;
-                font-size: 24px;
-                margin-bottom: 10px;
-            }
-
-            .item h2 {
-                font-size: 20px;
-            }
-
-            .item h3 {
-                font-size: 13px;
-            }
-        }
-
-        /* HP kecil */
-        @media(max-width:480px) {
-            .grid-keunggulan {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -160,7 +127,6 @@ $dataFasilitas = mysqli_fetch_assoc($qFasilitas);
     <section class="keunggulan" id="keunggulan">
         <div class="container">
             <div class="grid-keunggulan">
-
                 <div class="item">
                     <div class="icon"><i class="fas fa-chalkboard-teacher"></i></div>
                     <h2><?= $dataGuru['total']; ?></h2>
@@ -196,7 +162,6 @@ $dataFasilitas = mysqli_fetch_assoc($qFasilitas);
                     <h2><?= $dataFasilitas['total']; ?></h2>
                     <h3>Total Fasilitas</h3>
                 </div>
-
             </div>
         </div>
     </section>

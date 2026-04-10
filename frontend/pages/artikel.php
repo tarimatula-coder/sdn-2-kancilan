@@ -5,9 +5,7 @@ $resultartikel = mysqli_query($connect, $qartikel);
 ?>
 
 <style>
-    /* ================= CSS KAMU (TETAP) ================= */
-
-    /* ================= RESPONSIVE UPDATE ================= */
+    /* ================= TAMBAHAN RESPONSIVE ARTIKEL ================= */
 
     /* Tablet */
     @media (max-width: 1024px) {
@@ -18,77 +16,61 @@ $resultartikel = mysqli_query($connect, $qartikel);
         }
     }
 
-    /* HP → 3 KOLOM */
+    /* Mobile */
     @media (max-width: 768px) {
 
         .artikel {
-            padding: 80px 10px 40px !important;
+            padding: 80px 15px 40px !important;
         }
 
         .artikel .title {
-            font-size: 24px;
+            font-size: 26px;
         }
 
         .artikel .subtitle {
-            font-size: 13px;
+            font-size: 14px;
         }
 
         .artikel .row {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
         }
 
         .artikel .img-box img {
-            height: 110px;
+            height: 160px;
             object-fit: cover;
         }
 
-        .artikel .card-body {
-            padding: 10px;
-        }
-
         .artikel .card-body h3 {
-            font-size: 13px;
+            font-size: 18px;
         }
 
         .artikel .card-body p {
-            display: none;
-            /* biar muat 3 kolom */
-        }
-
-        .artikel .btn-detail {
-            font-size: 11px;
-            padding: 6px;
-        }
-
-        /* badge biar kecil */
-        .artikel .img-box div {
-            top: 10px !important;
-            left: 10px !important;
-            font-size: 9px !important;
-            padding: 4px 8px !important;
+            font-size: 13px;
         }
     }
 
-    /* HP kecil tetap 3 kolom */
+    /* Mobile kecil */
     @media (max-width: 480px) {
 
         .artikel .row {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 6px;
+            grid-template-columns: 1fr;
         }
 
         .artikel .img-box img {
-            height: 90px;
+            height: 140px;
         }
 
-        .artikel .card-body h3 {
-            font-size: 11px;
+        .artikel .card-body {
+            padding: 15px;
         }
 
         .artikel .btn-detail {
-            font-size: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            padding: 8px;
         }
     }
 </style>
@@ -138,7 +120,7 @@ $resultartikel = mysqli_query($connect, $qartikel);
 
                             <img src="../storages/artikel/<?= htmlspecialchars($item->image) ?>">
 
-                            <!-- BADGE -->
+                            <!-- BADGE TANGGAL -->
                             <div style="
                                 position:absolute;
                                 top:30px;

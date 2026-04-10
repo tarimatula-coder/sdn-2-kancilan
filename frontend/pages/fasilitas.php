@@ -26,14 +26,19 @@ $resultfasilitas = mysqli_query($connect, $qfasilitas);
                     <div class="ekskul-card">
 
                         <div class="img-box">
+
                             <img src="../storages/fasilitas/<?= htmlspecialchars($item->image) ?>">
+
                         </div>
 
                         <div class="card-body">
+
                             <h3><?= htmlspecialchars($item->nama) ?></h3>
 
                             <!-- BIAR TINGGI SAMA -->
-                            <p style="visibility:hidden;"></p>
+                            <p style="visibility:hidden;">
+                            </p>
+
                         </div>
 
                     </div>
@@ -49,11 +54,7 @@ $resultfasilitas = mysqli_query($connect, $qfasilitas);
 </section>
 
 <style>
-    /* ================= CSS KAMU (TETAP) ================= */
-    /* (tidak saya ubah, hanya lanjut ke responsive) */
-
-
-    /* ================= RESPONSIVE UPDATE ================= */
+    /* ================= TAMBAHAN RESPONSIVE ================= */
 
     /* Tablet */
     @media (max-width: 1024px) {
@@ -69,54 +70,52 @@ $resultfasilitas = mysqli_query($connect, $qfasilitas);
         }
     }
 
-    /* HP → 3 KOLOM */
+    /* Mobile */
     @media (max-width: 768px) {
 
         .fasilitas {
-            padding: 80px 10px 40px !important;
+            padding: 80px 15px 40px !important;
         }
 
         .fasilitas .title {
-            font-size: 24px;
+            font-size: 26px;
         }
 
         .fasilitas .subtitle {
-            font-size: 13px;
+            font-size: 14px;
         }
 
         .fasilitas .row {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-
-        .fasilitas .img-box img {
-            height: 110px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
         }
 
         .fasilitas .card-body {
-            padding: 10px;
+            padding: 20px;
         }
 
         .fasilitas .card-body h3 {
-            font-size: 14px;
+            font-size: 18px;
         }
     }
 
-    /* HP KECIL → tetap 3 kolom */
+    /* Mobile kecil */
     @media (max-width: 480px) {
 
         .fasilitas .row {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 6px;
+            grid-template-columns: 1fr;
         }
 
         .fasilitas .img-box img {
-            height: 90px;
+            height: 150px;
+        }
+
+        .fasilitas .card-body {
+            padding: 15px;
         }
 
         .fasilitas .card-body h3 {
-            font-size: 12px;
+            font-size: 16px;
         }
     }
 </style>

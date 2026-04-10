@@ -72,6 +72,7 @@ $resultekstrakulikuler = mysqli_query($connect, $qekstrakulikuler);
         margin-top: 5px;
     }
 
+    /* CARD */
     .ekskul-card {
         background: #ffffff;
         border-radius: 22px;
@@ -89,6 +90,7 @@ $resultekstrakulikuler = mysqli_query($connect, $qekstrakulikuler);
         box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
     }
 
+    /* IMAGE */
     .img-box {
         padding: 20px 20px 10px 20px;
     }
@@ -100,6 +102,7 @@ $resultekstrakulikuler = mysqli_query($connect, $qekstrakulikuler);
         border-radius: 14px;
     }
 
+    /* BODY */
     .card-body {
         padding: 20px 35px 35px 35px;
         display: flex;
@@ -125,6 +128,7 @@ $resultekstrakulikuler = mysqli_query($connect, $qekstrakulikuler);
         text-align: left;
     }
 
+    /* BUTTON */
     .btn-wrapper {
         margin-top: auto;
         padding: 0 20px 10px 20px;
@@ -149,11 +153,11 @@ $resultekstrakulikuler = mysqli_query($connect, $qekstrakulikuler);
         transform: scale(1.05);
     }
 
-    /* ================= RESPONSIVE UPDATE ================= */
+    /* ================= TAMBAHAN RESPONSIVE ================= */
 
     /* Tablet */
     @media (max-width: 1024px) {
-        .ekstrakulikuler .row {
+        .row {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
@@ -164,68 +168,55 @@ $resultekstrakulikuler = mysqli_query($connect, $qekstrakulikuler);
         }
     }
 
-    /* HP → 3 KOLOM */
+    /* Mobile */
     @media (max-width: 768px) {
 
         .ekstrakulikuler {
-            padding: 80px 10px 40px !important;
+            padding: 80px 15px 40px !important;
         }
 
         .title {
-            font-size: 24px;
+            font-size: 26px;
         }
 
         .subtitle {
-            font-size: 13px;
-        }
-
-        .ekstrakulikuler .row {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-
-        .img-box img {
-            height: 110px;
-        }
-
-        .card-body {
-            padding: 10px;
-        }
-
-        .card-body h3 {
             font-size: 14px;
         }
 
-        .card-body p {
-            display: none;
-            /* biar muat 3 kolom */
+        .row {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
         }
 
-        .btn-detail {
-            padding: 8px;
-            font-size: 12px;
-        }
-    }
-
-    /* HP kecil tetap 3 kolom */
-    @media (max-width: 480px) {
-
-        .ekstrakulikuler .row {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 6px;
-        }
-
-        .img-box img {
-            height: 90px;
+        .card-body {
+            padding: 20px;
         }
 
         .card-body h3 {
-            font-size: 12px;
+            font-size: 18px;
+        }
+
+        .card-body p {
+            font-size: 13px;
+        }
+    }
+
+    /* Mobile kecil */
+    @media (max-width: 480px) {
+
+        .row {
+            grid-template-columns: 1fr;
+        }
+
+        .img-box img {
+            height: 150px;
         }
 
         .btn-detail {
-            font-size: 11px;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            font-size: 13px;
         }
     }
 </style>

@@ -21,7 +21,7 @@ $resultpencapaian = mysqli_query($connect, $qpencapaian);
                             alt="<?= htmlspecialchars($item->nama) ?>">
 
                         <div class="prestasi-overlay">
-                            <h5><?= nl2br(htmlspecialchars($item->nama)); ?></h5>
+                            <h5><?= nl2br (htmlspecialchars($item->nama)); ?></h5>
                             <p><?= nl2br(htmlspecialchars($item->keterangan)); ?></p>
                         </div>
 
@@ -35,8 +35,7 @@ $resultpencapaian = mysqli_query($connect, $qpencapaian);
 </section>
 
 <style>
-    /* ================= CSS ASLI KAMU ================= */
-
+    /* SECTION */
     #pencapaian {
         padding: 80px 20px;
         background: #f9fafb;
@@ -47,22 +46,26 @@ $resultpencapaian = mysqli_query($connect, $qpencapaian);
         font-weight: 700;
     }
 
+    /* CARD */
     .prestasi-card {
         position: relative;
         border-radius: 16px;
         overflow: hidden;
         height: 390px;
+
         background: #fff;
         border: 1px solid #e5e7eb;
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
     }
 
+    /* IMAGE */
     .prestasi-card img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
 
+    /* TEXT */
     .prestasi-overlay {
         position: absolute;
         bottom: 0;
@@ -83,75 +86,5 @@ $resultpencapaian = mysqli_query($connect, $qpencapaian);
         font-size: 14px;
         margin: 0;
         opacity: 0.9;
-    }
-
-    /* ================= TAMBAHAN RESPONSIVE ================= */
-
-    /* Tablet */
-    @media (max-width: 1024px) {
-
-        #pencapaian .row {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .prestasi-card {
-            height: 320px;
-        }
-    }
-
-    /* HP */
-    @media (max-width: 768px) {
-
-        #pencapaian {
-            padding: 60px 15px;
-        }
-
-        .pencapaian-title {
-            font-size: 22px;
-        }
-
-        #pencapaian .row {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-
-        .prestasi-card {
-            height: 230px;
-        }
-
-        .prestasi-overlay {
-            padding: 12px;
-        }
-
-        .prestasi-overlay h5 {
-            font-size: 13px;
-        }
-
-        .prestasi-overlay p {
-            font-size: 11px;
-        }
-    }
-
-    /* HP kecil */
-    @media (max-width: 480px) {
-
-        #pencapaian .row {
-            grid-template-columns: 1fr;
-        }
-
-        .prestasi-card {
-            height: 200px;
-        }
-
-        .prestasi-overlay h5 {
-            font-size: 12px;
-        }
-
-        .prestasi-overlay p {
-            font-size: 10px;
-        }
     }
 </style>
